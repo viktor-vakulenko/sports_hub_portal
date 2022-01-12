@@ -9,8 +9,10 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %><!--    this link temporary commented bacause we have error-->
   </head>
-
+  <%= render partial: 'shared/header' %>
   <body>
     <%= yield %>
   </body>
+  <%= render partial: 'shared/footer' %>
+
 </html>

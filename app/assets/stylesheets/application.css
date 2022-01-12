@@ -14,3 +14,183 @@
  *= require_tree .
  *= require_self
  */
+
+.profiler-result {
+    display: none;
+}
+.header-container {
+    height: 83px;
+}
+.logo-container{
+    position: relative;
+    text-align: center;
+    min-width: 253px;
+
+    height: 83px;
+
+
+    background: #D72130;
+}
+.logo-text{
+    position:inherit;
+    top: 30%;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    /* identical to box height, or 127% */
+
+    text-align: center;
+
+    color: #FFFBFB;
+}
+.search-container{
+    border-right: 1px solid #8080801a;
+    border-bottom: 1px solid #8080801a;
+
+    position: relative;
+
+}
+.search-icon{
+    width: 30px;
+    height: 25px;
+    left: 8%;
+    top: 29px;
+
+}
+.search-wrapper{
+    position: absolute;
+    left: 5%;
+    right: 30%;
+    top: calc(50% - 22px/2 + 1px);
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    /* identical to box height, or 157% */
+
+
+    /* Lable name */
+
+    color: #7F8899;
+}
+.search-input{
+
+    position: initial;
+    width: 80%;
+    height: 19px;
+    left: 15%;
+    top: 32px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    border: none;
+    border-color: transparent;
+    color: #B2B2B2;
+}
+.social-container{
+    border-right: 1px solid #8080801a;
+    border-bottom: 1px solid #8080801a;
+    position:relative;
+
+}
+.social-text{
+    position: absolute;
+    height: 22px;
+    left: 25%;
+    right: 20.83%;
+    top: calc(50% - 22px/2 + 0.5px);
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    /* identical to box height, or 157% */
+
+
+    /* Lable name */
+
+    color: #7F8899;
+}
+img .social-icon-wrapper{
+    width:10px;
+}
+.social-icon-wrapper{
+    position: absolute;
+    left: 40%;
+    right: 30%;
+    top: calc(50% - 22px/2 + 1px);
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    /* identical to box height, or 157% */
+
+
+    /* Lable name */
+
+    color: #7F8899;
+}
+.social-icon{
+    padding: 0 10px 0 10px;
+    width: 30px;
+    height: 15px;
+}
+.login-container{
+    border-bottom: 1px solid #8080801a;
+
+}
+.login-wrapper{
+    position: absolute;
+    left: 7%;
+    right: 30%;
+    top: calc(50% - 22px/2 + 1px)
+}
+.login {
+    text-align: center;
+    top: calc(40% - 20px/2 + 1px)
+
+}
+.lang {
+    text-align: center;
+    top: calc(50% - 22px/2 + 1px)
+}
+.footer-wrapper{
+    background: #D72130;
+}
+
+.footer-copyright.py-3 {
+    height: 80px;
+    width: 100%;
+    display: inline-block;
+    background-color: #D72130;
+}
+.copyright{
+    top: 20px;
+}
+.copyright-text{
+    color: #FFFBFB;
+}
+a{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    color:#7F7B7B!important;
+    text-decoration: none;
+}
+.text-medium{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+}
