@@ -4,8 +4,7 @@
     <div class="logo-container col">
       <%= link_to(root_path) do %>
         <span class="logo-text">Sports Hub</span>
-
-    <% end %>
+      <% end %>
     </div>
     <div class="search-container col">
       <div class="search-wrapper">
@@ -27,43 +26,48 @@
       <div class="row align-items-center">
         <div class="login col-sm-8">
           <% if user_signed_in? %>
-            <span>Здравствуйте, <%= current_user.email %></span>
-            <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+             <span class="dropdown">
+            <button>
+              <%= current_user.email %>
+            </button>
+            <label>
+              <input type="checkbox">
+              <ul>
+                  <%= link_to(edit_user_registration_path) do %>
+                    <li>View profile</li>
+                  <% end %>
+                  <%= link_to(edit_user_password_path) do %>
+                    <li>Change password</li>
+                  <% end %>
+                  <li>My surveys</li>
+                  <li>Team hub</li>
+                  <%= link_to(destroy_user_session_path) do %>
+                    <li>Log out</li>
+                  <% end %>
+
+              </ul>
+            </label>
+            </span>
           <% else %>
             <%= link_to 'Sign in', new_user_registration_path, class: "btn btn-outline-danger"%>
             <%= link_to 'Log in', new_user_session_path, class: "btn btn-outline-danger border border-danger"%>
           <% end %>
 
-          <!--        <div class="dropdown show">-->
-          <!--          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-          <!--            Dropdown link-->
-          <!--          </a>-->
-
-          <!--          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
-          <!--            <a class="dropdown-item" href="#">Action</a>-->
-          <!--            <a class="dropdown-item" href="#">Another action</a>-->
-          <!--            <a class="dropdown-item" href="#">Something else here</a>-->
-          <!--          </div>-->
-          <!--        </div>-->
-          <!--        <ul>-->
-          <!--          <li>Name</li>-->
-          <!--          <li>View profile</li>-->
-          <!--          <li>Change password</li>-->
-          <!--          <li>My surveys</li>-->
-          <!--          <li>Team hub</li>-->
-          <!--          <li>Log out</li>-->
-          <!--        </ul>-->
         </div>
         <div class="lang col-sm-4 ">
-          <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="dropdown">
+            <button>
               EN
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
+            <label>
+              <input type="checkbox">
+              <ul>
+                <li>EN</li>
+                <li>UA</li>
+                <li>ES</li>
+              </ul>
+            </label>
+            </span>
           </div>
       </div>
 
