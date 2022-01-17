@@ -2,7 +2,10 @@
 <header class="container-fluid">
   <div class="row header-container">
     <div class="logo-container col">
-      <span class="logo-text">Sports Hub</span>
+      <%= link_to(root_path) do %>
+        <span class="logo-text">Sports Hub</span>
+
+    <% end %>
     </div>
     <div class="search-container col">
       <div class="search-wrapper">
@@ -23,8 +26,14 @@
     <div class="login-container col">
       <div class="row align-items-center">
         <div class="login col-sm-8">
-          <button type="button" class="btn btn-outline-danger">Sign up</button>
-          <button type="button" class="btn btn-outline-danger border border-danger">Log in</button>
+          <% if user_signed_in? %>
+            <span>Здравствуйте, <%= current_user.email %></span>
+            <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+          <% else %>
+            <%= link_to 'Sign in', new_user_registration_path, class: "btn btn-outline-danger"%>
+            <%= link_to 'Log in', new_user_session_path, class: "btn btn-outline-danger border border-danger"%>
+          <% end %>
+
           <!--        <div class="dropdown show">-->
           <!--          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
           <!--            Dropdown link-->

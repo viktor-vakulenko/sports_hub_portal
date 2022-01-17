@@ -32,7 +32,8 @@
     background: #D72130;
 }
 .logo-text{
-    position:inherit;
+    display: block;
+    position: relative;
     top: 30%;
     font-family: Open Sans;
     font-style: normal;
@@ -167,7 +168,7 @@ img .social-icon-wrapper{
 }
 .footer {
     margin-top: auto;
-    position: absolute;
+    position: inherit;
     bottom: 0;
     width: 100%;
     height: 60px;
