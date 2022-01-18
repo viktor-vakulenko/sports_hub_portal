@@ -34,6 +34,7 @@ group :development, :test do
   gem 'jquery-rails'
   gem 'rspec-rails'
   gem 'devise'
+  gem 'mailcatcher'
 end
 
 group :development do
