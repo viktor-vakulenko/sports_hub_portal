@@ -29,15 +29,16 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
-  already_have_login: "Already have an account?"
-  sign_up_to_sports_hub: "Sign up to Sports Hub"
-  placeholder_password: " + characters (letters and numbers)"
-  sign_up: "Sign up"
+es:
+  hello: "Buenos dias"
+  already_have_login: "?Ya tienes una cuenta"
+  sign_up_to_sports_hub: "Regístrese en Sports Hub"
+  placeholder_password: " + caracteres (letras y números)"
+  sign_up: "Inscribirse"
   activerecord:
     attributes:
       user:
-        first_name: Your name
-        last_name: Last name
-
+        first_name: Su nombre
+        last_name: Tu apellido
+        password: contraseña
+        password_confirmation: confirmación de contraseña
