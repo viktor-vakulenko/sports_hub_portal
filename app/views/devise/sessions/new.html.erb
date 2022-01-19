@@ -18,13 +18,13 @@
       <h2 class="font-weight-bold" >Log in to Sports Hub</h2>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-group">
-          <%= f.label 'EMAIL ADDRESS', class: "text-uppercase"  %>
+          <%= f.label 'EMAIL ADDRESS', class: "text-uppercase py-2"  %>
           <%= f.email_field :email, autofocus: true, class: "form-control" %>
         </div>
 
         <div class="form-group">
           <br />
-          <%= f.label 'PASSWORD', class: "text-uppercase"%>
+          <%= f.label 'PASSWORD', class: "text-uppercase py-2"%>
           <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
         </div>
 
@@ -35,7 +35,7 @@
           </div>
         <% end %>
 
-        <div class="actions">
+        <div class="actions py-3">
           <%= f.submit "Log in", class: "btn-lg btn-danger " %>
         </div>
       <% end %>
