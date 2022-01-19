@@ -24,8 +24,8 @@
     </div>
     <div class="login-container col">
       <div class="row align-items-center">
-        <div class="login col-sm-6 px-5">
-          <% if user_signed_in? %>
+        <% if user_signed_in? %>
+          <div class="login col-sm-6 px-5">
              <span class="dropdown">
             <button>
               <%= current_user.email %>
@@ -36,7 +36,7 @@
                   <%= link_to(edit_user_registration_path) do %>
                     <li>View profile</li>
                   <% end %>
-                  <%= link_to(edit_user_password_path) do %>
+                  <%= link_to(new_user_password_path) do %>
                     <li>Change password</li>
                   <% end %>
                   <li>My surveys</li>
@@ -49,7 +49,8 @@
             </label>
             </span>
           <% else %>
-            <%= link_to 'Sign in', new_user_registration_path, class: "btn btn-outline-danger"%>
+          <div class="login col-sm-6 ">
+            <%= link_to t('sign_up'), new_user_registration_path, class: "btn "%>
             <%= link_to 'Log in', new_user_session_path, class: "btn btn-outline-danger border border-danger"%>
           <% end %>
 

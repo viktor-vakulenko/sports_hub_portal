@@ -353,6 +353,17 @@ body {
 .btn-lg{
     width: 100%;
 }
+.btn{
+    color: #cc0000!important;
+}
 .dropdown input[type=checkbox]:checked + ul {
     top: 35px;
+}
+.btn:hover {
+    color: #fff!important;
+    background-color: #cc0000!important;
+}
+a:hover {
+    color: #cc0000!important;
+    background-color: #fff!important;
 }
