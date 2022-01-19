@@ -1,16 +1,40 @@
-<h2>Forgot your password?</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-login-image">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="logo-container__login position-absolute">
+        <a href="/">
+          <span class="logo-text">Sports Hub</span>
+        </a>
+      </div>
+      <%= image_tag("login.png", class: "login-img img-fluid ") %>
+    </div>
+    <div class="col-md-6 ">
+      <div class="container p-3 text-end">
+        <span class="px-3">Don’t have an account?</span> <%= link_to 'Get Started', new_user_registration_path, class: "btn btn-outline-danger"%>
+      </div>
+      <div class="wrapper align-items-center col-login-fields-wrapper">
+        <div class="row center-block">
+          <h3 class="font-weight-bold">Forgot your password?</h3>
+          <span class="text-muted">Enter your email address below and <br> we’ll get you back on track.</span>
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <div class="form-group">
+              <%= f.label 'Email address', class: "text-uppercase py-2"%>
+              <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "jonhdoe@gmail.com" %>
+            </div>
+            <br>
+            <div class="actions">
+              <%= f.submit "Sign up", class: "btn-lg btn-danger " %>
+            </div>
+          <% end %>
+
+          <%= render "devise/shared/links" %>
+
+
+          </div>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

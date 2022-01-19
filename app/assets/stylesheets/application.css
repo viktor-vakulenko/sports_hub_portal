@@ -18,20 +18,38 @@
 .profiler-result {
     display: none;
 }
+
 .header-container {
     height: 83px;
 }
-.logo-container{
+
+.logo-container {
     position: relative;
     text-align: center;
     min-width: 253px;
-
     height: 83px;
-
-
     background: #D72130;
 }
-.logo-text{
+
+.logo-container__login {
+    text-align: center;
+    min-width: 253px;
+    height: 83px;
+    background: #D72130;
+}
+
+.col-login-image {
+    padding-left: 0px !important;
+}
+
+.col-login-fields-wrapper {
+    float: none;
+    margin: auto;
+    max-width: 390px;
+    padding-top: 35%;
+}
+
+.logo-text {
     display: block;
     position: relative;
     top: 30%;
@@ -46,25 +64,28 @@
 
     color: #FFFBFB;
 }
-.search-container{
+
+.search-container {
     border-right: 1px solid #8080801a;
     border-bottom: 1px solid #8080801a;
 
     position: relative;
 
 }
-.search-icon{
+
+.search-icon {
     width: 30px;
     height: 25px;
     left: 8%;
     top: 29px;
 
 }
-.search-wrapper{
+
+.search-wrapper {
     position: absolute;
     left: 5%;
     right: 30%;
-    top: calc(50% - 22px/2 + 1px);
+    top: calc(50% - 22px / 2 + 1px);
 
     font-family: Open Sans;
     font-style: normal;
@@ -78,7 +99,8 @@
 
     color: #7F8899;
 }
-.search-input{
+
+.search-input {
 
     position: initial;
     width: 80%;
@@ -93,18 +115,20 @@
     border-color: transparent;
     color: #B2B2B2;
 }
-.social-container{
+
+.social-container {
     border-right: 1px solid #8080801a;
     border-bottom: 1px solid #8080801a;
-    position:relative;
+    position: relative;
 
 }
-.social-text{
+
+.social-text {
     position: absolute;
     height: 22px;
     left: 25%;
     right: 20.83%;
-    top: calc(50% - 22px/2 + 0.5px);
+    top: calc(50% - 22px / 2 + 0.5px);
 
     font-family: Open Sans;
     font-style: normal;
@@ -118,14 +142,16 @@
 
     color: #7F8899;
 }
-img .social-icon-wrapper{
-    width:10px;
+
+img .social-icon-wrapper {
+    width: 10px;
 }
-.social-icon-wrapper{
+
+.social-icon-wrapper {
     position: absolute;
     left: 40%;
     right: 30%;
-    top: calc(50% - 22px/2 + 1px);
+    top: calc(50% - 22px / 2 + 1px);
 
     font-family: Open Sans;
     font-style: normal;
@@ -139,33 +165,40 @@ img .social-icon-wrapper{
 
     color: #7F8899;
 }
-.social-icon{
+
+.social-icon {
     padding: 0 10px 0 10px;
     width: 30px;
     height: 15px;
 }
-.login-container{
+
+.login-container {
     border-bottom: 1px solid #8080801a;
 
 }
-.row .align-items-center{
+
+.row .align-items-center {
     height: 100%;
 }
-.login-wrapper{
+
+.login-wrapper {
     position: absolute;
     left: 7%;
     right: 30%;
-    top: calc(50% - 22px/2 + 1px)
+    top: calc(50% - 22px / 2 + 1px)
 }
+
 .login {
     text-align: center;
-    top: calc(40% - 20px/2 + 1px)
+    top: calc(40% - 20px / 2 + 1px)
 
 }
+
 .lang {
     text-align: center;
-    top: calc(50% - 22px/2 + 1px)
+    top: calc(50% - 22px / 2 + 1px)
 }
+
 .footer {
     margin-top: auto;
     position: inherit;
@@ -174,7 +207,8 @@ img .social-icon-wrapper{
     height: 60px;
     line-height: 60px;
 }
-.footer-wrapper{
+
+.footer-wrapper {
     background: #D72130;
 }
 
@@ -184,27 +218,32 @@ img .social-icon-wrapper{
     display: inline-block;
     background-color: #D72130;
 }
-.copyright{
+
+.copyright {
     top: 20px;
 }
-.copyright-text{
+
+.copyright-text {
     color: #FFFBFB;
     text-align: right;
 }
-.text-left{
+
+.text-left {
     text-align: left;
 
 }
-a{
+
+a {
     font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
     line-height: 16px;
-    color:#7F7B7B!important;
+    color: #7F7B7B !important;
     text-decoration: none;
 }
-.text-medium{
+
+.text-medium {
     font-family: Open Sans;
     font-style: normal;
     font-weight: bold;
@@ -213,8 +252,8 @@ a{
 }
 
 body {
-    margin: 0!important;
-    min-height: 100%!important;
+    margin: 0 !important;
+    min-height: 100% !important;
 
 }
 
@@ -260,9 +299,11 @@ body {
 
 .dropdown input[type=checkbox]:checked {
     position: fixed;
-    z-index:+0;
-    top: 0px; left: 0px;
-    right: 0px; bottom: 0px;
+    z-index: +0;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
 }
 
 .dropdown ul {
@@ -275,7 +316,7 @@ body {
     padding: 4px 0px;
     display: none;
     background-color: white;
-    box-shadow: 0 3px 6px rgba(0,0,0,.175);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .175);
 }
 
 .dropdown input[type=checkbox]:checked + ul {
@@ -307,4 +348,8 @@ body {
     background-color: #e5e5e5;
     font-size: 1px;
     padding: 0;
+}
+
+.btn-lg{
+    width: 100%;
 }

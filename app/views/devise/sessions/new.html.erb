@@ -1,17 +1,31 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-6"><%= image_tag("login.png", class:"login-img img-fluid ")%></div>
-    <div class="col-md-6"><h2>Log in</h2>
+    <div class="col-md-6 col-login-image">
 
+      <div class="logo-container__login position-absolute">
+        <a href="/">
+          <span class="logo-text">Sports Hub</span>
+        </a>
+      </div>
+      <%= image_tag("login.png", class:"login-img img-fluid ")%>
+    </div>
+    <div class="col-md-6 ">
+      <div class="container p-3 text-end">
+        <span class="px-3">Don’t have an account?</span> <%= link_to 'Get Started', new_user_registration_path, class: "btn btn-outline-danger"%>
+      </div>
+      <div class="wrapper align-items-center col-login-fields-wrapper">
+      <div class="row center-block">
+      <h2 class="font-weight-bold" >Log in to Sports Hub</h2>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <div class="form-group">
+          <%= f.label 'EMAIL ADDRESS', class: "text-uppercase"  %>
+          <%= f.email_field :email, autofocus: true, class: "form-control" %>
         </div>
 
-        <div class="field">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "current-password" %>
+        <div class="form-group">
+          <br />
+          <%= f.label 'PASSWORD', class: "text-uppercase"%>
+          <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
         </div>
 
         <% if devise_mapping.rememberable? %>
@@ -22,11 +36,13 @@
         <% end %>
 
         <div class="actions">
-          <%= f.submit "Log in" %>
+          <%= f.submit "Log in", class: "btn-lg btn-danger " %>
         </div>
       <% end %>
 
       <%= render "devise/shared/links" %></div>
+      </div>
+    </div>
   </div>
 </div>
 
