@@ -1,4 +1,8 @@
-
+<% if user_signed_in? && current_user.admin? %>
+<h2>THIS IS ADMIN LOGGED IN </h2>
+<% elsif user_signed_in?%>
+<h2>not admin</h2>
+<% end %>
 <header class="container-fluid">
   <div class="row header-container">
     <div class="logo-container col">

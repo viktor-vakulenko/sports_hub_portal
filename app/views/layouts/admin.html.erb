@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SportHubPortal</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %><!--    this link temporary commented bacause we have error-->
+  </head>
+  <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(new_user_password_path) %>
+    <%= render partial: 'shared/header' %>
+  <% end %>
+  <body>
+  <% if current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(new_user_password_path) %>
+    <%= yield %>
+  <% else %>
+    <div class="container">
+      <div class="row">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <h2>ADMIN LAYOUT</h2>
+        <%= yield %>
+      </div>
+    </div>
+  <% end %>
+
+  </body>
+  <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(new_user_password_path) %>
+    <%= render partial: 'shared/footer' %>
+  <% end %>
+
+</html>
