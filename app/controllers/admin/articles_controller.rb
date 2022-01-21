@@ -1,6 +1,6 @@
-class ArticlesController < ApplicationController
+class Admin::ArticlesController < AdminController
   before_action :set_article, only: %i[ show edit update destroy ]
-  skip_before_action :authenticate_user!, only: [:show]
+
   # GET /articles or /articles.json
   def index
     @articles = Article.all

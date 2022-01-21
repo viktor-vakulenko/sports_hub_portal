@@ -35,6 +35,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'devise'
   gem 'mailcatcher'
+  gem 'popper_js', '~> 1.2'
+  gem 'bootstrap', '~> 4.0'
 end
 
 group :development do

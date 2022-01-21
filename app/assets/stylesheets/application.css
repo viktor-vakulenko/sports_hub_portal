@@ -13,8 +13,8 @@
  *= require bootstrap
  *= require_tree .
  *= require_self
- */
-
+@import "bootstrap";
+*/
 .profiler-result {
     display: none;
 }

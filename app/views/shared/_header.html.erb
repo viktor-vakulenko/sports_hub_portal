@@ -45,9 +45,7 @@
                   <% end %>
                   <li>My surveys</li>
                   <li>Team hub</li>
-                  <%= link_to(destroy_user_session_path) do %>
-                    <li>Log out</li>
-                  <% end %>
+                  <li><%= link_to t('log_out'), destroy_user_session_path, method: :delete %></li>
 
               </ul>
             </label>
