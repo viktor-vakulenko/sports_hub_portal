@@ -36,7 +36,7 @@ en:
   placeholder_password: " + characters (letters and numbers)"
   sign_up: "Sign up"
   log_in: "Log in"
-  log_out: "Log in"
+  log_out: "Log out"
   change_password: "Change password"
   view_profile: "View profile"
   activerecord:
