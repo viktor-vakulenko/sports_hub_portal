@@ -25,6 +25,9 @@
         </ul>
       </div>
       <div class="center-block col-md-9">
+        <% if current_page?(edit_user_registration_path) || current_page?(edit_user_path) %>
+          <%= render partial: 'shared/users_cabinet_tabs' %>
+        <% end %>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
         <%= yield %>
