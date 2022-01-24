@@ -39,6 +39,7 @@ en:
   log_out: "Log out"
   change_password: "Change password"
   view_profile: "View profile"
+  articles: "Articles"
   activerecord:
     attributes:
       user:

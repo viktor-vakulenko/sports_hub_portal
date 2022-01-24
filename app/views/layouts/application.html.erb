@@ -16,12 +16,20 @@
   <% if current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(new_user_password_path) %>
     <%= yield %>
   <% else %>
-    <div class="container">
-      <div class="row">
+    <div class="container-fluid">
+    <div class="row">
+      <div class="center-block col-md-3">
+        <h1>Menu</h1>
+        <ul>
+          <li><%= link_to t('articles'), articles_path  %></li>
+        </ul>
+      </div>
+      <div class="center-block col-md-9">
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
         <%= yield %>
       </div>
+    </div>
     </div>
   <% end %>
 
