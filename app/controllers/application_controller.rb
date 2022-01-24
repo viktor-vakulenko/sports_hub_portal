@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
-  # layout :determine_layout
+  layout :determine_layout
 
   def after_sign_in_path_for(resource)
     root_path
@@ -24,7 +24,11 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # def determine_layout
-  #   current_user.admin ? 'admin' : 'application'
-  # end
+  def determine_layout
+    if user_signed_in? && current_user.admin?
+      'admin'
+    else
+      'application'
+    end
+  end
 end
