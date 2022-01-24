@@ -1,0 +1,6 @@
+<%= form_for :user, url: user_path, action: :update, method: :post  do |f| %>
+  <%= f.text_field :first_name %>
+  <%= f.text_field :last_name %>
+  <%= f.text_field :email %>
+  <%= f.submit "Update Account" %>
+<% end %>

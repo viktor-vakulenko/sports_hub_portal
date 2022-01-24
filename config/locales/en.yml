@@ -40,6 +40,9 @@ en:
   change_password: "Change password"
   view_profile: "View profile"
   articles: "Articles"
+  personal: "Personal"
+  my_surveys: "My surveys"
+  team_hub: "Team hub"
   activerecord:
     attributes:
       user:

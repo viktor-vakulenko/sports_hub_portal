@@ -23,12 +23,15 @@
             <ul>
               <li><%= link_to t('articles'), admin_articles_path  %></li>
               <li><%= link_to 'Homepage', home_index_path  %></li>
+              <li><%= link_to 'User edit', edit_user_path  %></li>
             </ul>
         </div>
         <div class="center-block col-md-9">
+          <% if current_page?(edit_user_registration_path) || current_page?(edit_user_path) %>
+          <%= render partial: 'shared/users_cabinet_tabs' %>
+            <% end %>
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
-          <h2>ADMIN LAYOUT</h2>
           <%= yield %>
         </div>
       </div>
