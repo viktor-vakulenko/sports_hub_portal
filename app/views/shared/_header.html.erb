@@ -1,7 +1,7 @@
 <% if user_signed_in? && current_user.admin? %>
-<h2>THIS IS ADMIN LOGGED IN </h2>
-<% elsif user_signed_in?%>
-<h2>not admin</h2>
+  <h2>THIS IS ADMIN LOGGED IN </h2>
+<% elsif user_signed_in? %>
+  <h2>not admin</h2>
 <% end %>
 <header class="container-fluid">
   <div class="row header-container">
@@ -12,17 +12,17 @@
     </div>
     <div class="search-container col">
       <div class="search-wrapper">
-        <%= image_tag("search-icon.jpg" , class:"search-icon" )%>
-        <input class="search-input " type="text" placeholder="Search by" >
+        <%= image_tag("search-icon.jpg", class: "search-icon") %>
+        <input class="search-input " type="text" placeholder="Search by">
       </div>
     </div>
     <div class="social-container col">
       <p class="social-text">Share</p>
 
       <div class="social-icon-wrapper">
-        <a href="http://www.facebook.com" target="_blank" rel="nofollow"><%= image_tag("FB.png", class:"social-icon")%></a>
-        <a href="http://www.twitter.com" target="_blank" rel="nofollow"><%= image_tag("twitter.png", class:"social-icon")%></a>
-        <a href="http://www.google.com" target="_blank" rel="nofollow"><%= image_tag("google.png", class:"social-icon")%></a>
+        <a href="http://www.facebook.com" target="_blank" rel="nofollow"><%= image_tag("FB.png", class: "social-icon") %></a>
+        <a href="http://www.twitter.com" target="_blank" rel="nofollow"><%= image_tag("twitter.png", class: "social-icon") %></a>
+        <a href="http://www.google.com" target="_blank" rel="nofollow"><%= image_tag("google.png", class: "social-icon") %></a>
 
       </div>
     </div>
@@ -37,25 +37,19 @@
             <label>
               <input type="checkbox">
               <ul>
-                  <%= link_to(edit_user_registration_path) do %>
-                    <li>View profile</li>
-                  <% end %>
-                  <%= link_to(new_user_password_path) do %>
-                    <li>Change password</li>
-                  <% end %>
+                  <li><%= link_to t('view_profile'), edit_user_registration_path %></li>
+                  <li><%= link_to t('change_password'), new_user_password_path %></li>
                   <li>My surveys</li>
                   <li>Team hub</li>
                   <li><%= link_to t('log_out'), destroy_user_session_path, method: :delete %></li>
-
               </ul>
             </label>
             </span>
-          <% else %>
+        <% else %>
           <div class="login col-sm-6 ">
-            <%= link_to t('sign_up'), new_user_registration_path, class: "btn "%>
-            <%= link_to 'Log in', new_user_session_path, class: "btn btn-outline-danger border border-danger"%>
-          <% end %>
-
+            <%= link_to t('sign_up'), new_user_registration_path, class: "btn " %>
+            <%= link_to 'Log in', new_user_session_path, class: "btn btn-outline-danger border border-danger" %>
+        <% end %>
         </div>
         <div class="lang col-sm-6 ">
           <span class="dropdown">
@@ -71,8 +65,8 @@
               </ul>
             </label>
             </span>
-          </div>
-      </div>
+        </div>
+        </div>
 
       </div>
     </div>

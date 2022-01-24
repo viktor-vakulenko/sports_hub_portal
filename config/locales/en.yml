@@ -35,6 +35,10 @@ en:
   sign_up_to_sports_hub: "Sign up to Sports Hub"
   placeholder_password: " + characters (letters and numbers)"
   sign_up: "Sign up"
+  log_in: "Log in"
+  log_out: "Log in"
+  change_password: "Change password"
+  view_profile: "View profile"
   activerecord:
     attributes:
       user:
