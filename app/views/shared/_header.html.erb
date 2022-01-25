@@ -13,7 +13,10 @@
     <div class="search-container col">
       <div class="search-wrapper">
         <%= image_tag("search-icon.jpg", class: "search-icon") %>
-        <input class="search-input " type="text" placeholder="Search by">
+        <%= form_with(url: search_articles_path, local: true, method: :get, class: "search-form") do |form| %>
+          <%= form.text_field :keyword, placeholder: "Search by", class: "search-input" %>
+          <%= form.submit "Search", class: "search-btn" %>
+        <% end %>
       </div>
     </div>
     <div class="social-container col">

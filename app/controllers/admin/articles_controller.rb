@@ -82,6 +82,10 @@ class Admin::ArticlesController < AdminController
     end
   end
 
+  def search
+    @article_search = Article.search(params[:keyword])
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

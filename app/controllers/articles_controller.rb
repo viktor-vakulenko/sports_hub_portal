@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!
+
   def index
     @articles = Article.all
   end
@@ -50,17 +51,18 @@ class ArticlesController < ApplicationController
   end
 
   # # PATCH/PUT /articles/1 or /articles/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @article.update(article_params)
-  #       format.html { redirect_to article_url(@article), notice: "Article was successfully updated." }
-  #       format.json { render :show, status: :ok, location: @article }
-  #     else
-  #       format.html { render :edit, status: :unprocessable_entity }
-  #       format.json { render json: @article.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+  def update
+    respond_to do |format|
+      if @article.update(article_params)
+        format.html { redirect_to article_url(@article), notice: "Article was successfully updated." }
+        format.json { render :show, status: :ok, location: @article }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @article.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   #
   # # DELETE /articles/1 or /articles/1.json
   # def destroy
@@ -80,6 +82,10 @@ class ArticlesController < ApplicationController
   #     redirect_back fallback_location: root_path, notice: "Guest is not have permisions"
   #   end
   # end
+
+  def search
+    @article_search = Article.search(params[:keyword])
+  end
 
   private
 

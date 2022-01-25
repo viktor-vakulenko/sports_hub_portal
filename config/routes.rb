@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users, path: 'users-info', only: %i[show edit update]
-  resources :articles
+  resources :articles do
+    collection do
+      get 'search'
+    end
+  end
   namespace :admin do
     resources :articles
   end
