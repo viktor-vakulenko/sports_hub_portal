@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  resource :user, path: 'users-info'
+  resources :users, path: 'users-info', only: %i[show edit update]
   resources :articles
-  resources :home
   namespace :admin do
-    resources :articles, :home
+    resources :articles
   end
-  get 'home/index'
   root to: 'home#index'
   devise_scope :user do
     get 'users/sign_out' => 'devise/sessions#destroy'

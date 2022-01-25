@@ -13,7 +13,7 @@
     <%= render partial: 'shared/header' %>
   <% end %>
   <body>
-  <% if current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(new_user_password_path) %>
+  <% if current_page?(new_user_session_path()) || current_page?(new_user_registration_path) || current_page?(new_user_password_path) %>
     <%= yield %>
   <% else %>
     <div class="container-fluid">
@@ -22,14 +22,12 @@
           <h1>Menu</h1>
             <ul>
               <li><%= link_to t('articles'), admin_articles_path  %></li>
-              <li><%= link_to 'Homepage', home_index_path  %></li>
-              <li><%= link_to 'User edit', edit_user_path  %></li>
             </ul>
         </div>
         <div class="center-block col-md-9">
-          <% if current_page?(edit_user_registration_path) || current_page?(edit_user_path) %>
+          <%# if current_page?(edit_user_registration_path) || current_page?(edit_user_path) %>
           <%= render partial: 'shared/users_cabinet_tabs' %>
-            <% end %>
+            <%# end %>
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
           <%= yield %>

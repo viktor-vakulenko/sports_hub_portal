@@ -49,37 +49,37 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /articles/1 or /articles/1.json
-  def update
-    respond_to do |format|
-      if @article.update(article_params)
-        format.html { redirect_to article_url(@article), notice: "Article was successfully updated." }
-        format.json { render :show, status: :ok, location: @article }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /articles/1 or /articles/1.json
-  def destroy
-
-    if user_signed_in?
-      if current_user.admin != true
-        redirect_back fallback_location: root_path, notice: "User #{current_user.first_name} is not have permisions"
-      else
-        @article.destroy
-
-        respond_to do |format|
-          format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
-          format.json { head :no_content }
-        end
-      end
-    else
-      redirect_back fallback_location: root_path, notice: "Guest is not have permisions"
-    end
-  end
+  # # PATCH/PUT /articles/1 or /articles/1.json
+  # def update
+  #   respond_to do |format|
+  #     if @article.update(article_params)
+  #       format.html { redirect_to article_url(@article), notice: "Article was successfully updated." }
+  #       format.json { render :show, status: :ok, location: @article }
+  #     else
+  #       format.html { render :edit, status: :unprocessable_entity }
+  #       format.json { render json: @article.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+  #
+  # # DELETE /articles/1 or /articles/1.json
+  # def destroy
+  #
+  #   if user_signed_in?
+  #     if current_user.admin != true
+  #       redirect_back fallback_location: root_path, notice: "User #{current_user.first_name} is not have permisions"
+  #     else
+  #       @article.destroy
+  #
+  #       respond_to do |format|
+  #         format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
+  #         format.json { head :no_content }
+  #       end
+  #     end
+  #   else
+  #     redirect_back fallback_location: root_path, notice: "Guest is not have permisions"
+  #   end
+  # end
 
   private
 

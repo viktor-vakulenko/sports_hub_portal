@@ -1,6 +1,22 @@
-<%= form_for :user, url: user_path, action: :update, method: :post  do |f| %>
-  <%= f.text_field :first_name %>
-  <%= f.text_field :last_name %>
-  <%= f.text_field :email %>
-  <%= f.submit "Update Account" %>
-<% end %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 text-center"></div>
+    <div class="col-md-3 text-left">
+      <h2>Edit <%= @user.first_name %> info</h2>
+      <h2>Edit <%= user_path(@user) %> info</h2>
+      <div class="form-group">
+        <%= form_for @user, url: user_path(@user), action: :update, method: :put do |f| %>
+          <%= f.label t('first_name') , autofocus: true, class: "text-uppercase py-2"%>
+          <%= f.text_field :first_name, class: "text-uppercase py-2", class: "form-control" %>
+          <%= f.label t('last_name'), class: "text-uppercase py-2" %>
+          <%= f.text_field :last_name, autofocus: true, class: "form-control" %>
+          <%= f.label t('email'), class: "text-uppercase py-2" %>
+          <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "jonhdoe@gmail.com" %>
+          <div class="actions py-3">
+            <%= f.submit "UPDATE PROFILE", class: "btn-lg btn-danger " %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
