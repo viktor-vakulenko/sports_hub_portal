@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @category.parent_id %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @category.team_id %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @category.location_id %>
+</p>
+
+<p>
+  <strong>Alt text:</strong>
+  <%= @category.alt_text %>
+</p>
+
+<p>
+  <strong>Headline text:</strong>
+  <%= @category.headline_text %>
+</p>
+
+<p>
+  <strong>Caption text:</strong>
+  <%= @category.caption_text %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @category.content %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @category.comment %>
+</p>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
