@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   # resources :category
   namespace :admin do
-    resources :articles, :category
+    resources :articles
   end
   root to: 'home#index'
   devise_scope :user do
