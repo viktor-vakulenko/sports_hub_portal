@@ -1,5 +1,6 @@
 jQuery(() => {
-    $(".button").click(function(){
-        $(".p").hide();
+    $('li').mouseover(function(){
+        $( "#blur" ).addClass( "blur" );
     });
+
 });

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_26_095739) do
+ActiveRecord::Schema.define(version: 2022_01_26_134121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,11 +28,19 @@ ActiveRecord::Schema.define(version: 2022_01_26_095739) do
     t.integer "parent_id"
     t.integer "team_id"
     t.integer "location_id"
-    t.string "alt_text"
-    t.string "headline_text"
-    t.string "caption_text"
-    t.text "content"
     t.boolean "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "ancestry"
+    t.string "title"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
+  end
+
+  create_table "homes", force: :cascade do |t|
+    t.string "photo_of_the_day_alt"
+    t.string "photo_of_the_day_title"
+    t.text "photo_of_the_day_description"
+    t.string "photo_of_the_day_author"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -45,8 +53,6 @@ ActiveRecord::Schema.define(version: 2022_01_26_095739) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
-    t.string "lastname"
     t.string "first_name"
     t.string "last_name"
     t.boolean "admin", default: false

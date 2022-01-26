@@ -1,8 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Parent:</strong>
-  <%= @category.parent_id %>
+  <% if (@category.parent_id) %>
+    <strong>Parent category:</strong>
+    <strong><%= Category.find_by(id: @category.parent_id).title %></strong>
+  <% end %>
+  ID: <%= @category.parent_id %>
 </p>
 
 <p>
@@ -13,26 +16,6 @@
 <p>
   <strong>Location:</strong>
   <%= @category.location_id %>
-</p>
-
-<p>
-  <strong>Alt text:</strong>
-  <%= @category.alt_text %>
-</p>
-
-<p>
-  <strong>Headline text:</strong>
-  <%= @category.headline_text %>
-</p>
-
-<p>
-  <strong>Caption text:</strong>
-  <%= @category.caption_text %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @category.content %>
 </p>
 
 <p>

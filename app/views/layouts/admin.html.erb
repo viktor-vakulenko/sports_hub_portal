@@ -7,7 +7,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %><!--    this link temporary commented bacause we have error-->
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(new_user_password_path) %>
     <%= render partial: 'shared/header' %>
@@ -20,15 +20,52 @@
       <div class="row">
         <div class="center-block col-md-3">
           <h1>Menu</h1>
+          <nav id="main-nav">
+            <%  Category.all.each do |category| %>
+              <ul>
+                <% unless (category.parent_id) %>
+                  <li class="text-center p-2 shadow-sm"><%= link_to category.title, category %>
+                    <ul>
+                      <% debug Category.find_by(id: category.parent_id)  %>
+                        <% if (category.parent_id == category.id) %>
+                      <li class="text-center p-2 shadow-sm"><%= category.title %>
+                        <% end  %>
+                    </ul>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
             <ul>
-              <li><%= link_to t('articles'), admin_articles_path  %></li>
-              <li><%= link_to 'Category', categories_path  %></li>
+              <li class="text-center p-2 shadow-sm" ><%= link_to t('articles'), articles_path  %></li>
+              <li class="text-center p-2 shadow-sm"><%= link_to 'Category', categories_path  %>
+                <ul>
+                  <li class="text-center p-2 shadow-sm">
+                    <a href="#">Project 1</a>
+                    <ul>
+                      <li class="text-center p-2 shadow-sm"><a href="#">Project 2</a>
+                        <ul>
+                          <li class="text-center p-2 shadow-sm"><a href="#">Project 3</a>
+                            <ul>
+                              <li class="text-center p-2 shadow-sm"><a href="#">Project 4</a>
+                                <ul>
+                                  <li class="text-center p-2 shadow-sm"><a href="#">Project 5</a></li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="text-center p-2 shadow-sm"><a href="#">Project 2</a></li>
+                  <li class="text-center p-2 shadow-sm"><a href="#">Project 3</a></li>
+                </ul>
+              </li>
+              <li class="text-center p-2 shadow-sm"><a href="#">Contact</a></li>
             </ul>
+          </nav>
         </div>
-        <div class="center-block col-md-9">
-          <%# if current_page?(edit_user_registration_path) || current_page?(edit_user_path) %>
-          <%= render partial: 'shared/users_cabinet_tabs' %>
-            <%# end %>
+        <div id="blur"   class="center-block col-md-9 ">
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
           <%= yield %>

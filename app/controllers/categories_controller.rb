@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[ show edit update destroy ]
-
+  skip_before_action :authenticate_user!
   # GET /categories or /categories.json
   def index
     @categories = Category.all
@@ -13,10 +13,12 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   def new
     @category = Category.new
+    @categories = Category.all
   end
 
   # GET /categories/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /categories or /categories.json
@@ -65,6 +67,6 @@ class CategoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def category_params
-      params.require(:category).permit(:parent_id, :team_id, :location_id, :alt_text, :headline_text, :caption_text, :content, :comment)
+      params.require(:category).permit(:parent_id, :team_id, :location_id, :title, :comment)
     end
 end

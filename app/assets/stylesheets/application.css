@@ -374,3 +374,67 @@ a:hover {
 form.search-form {
     display: initial;
 }
+
+/*menu START*/
+#main-nav ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style-type: none;
+}
+#main-nav ul li {
+    position: relative;
+}
+#main-nav ul li:hover:before {
+    content: "";
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid transparent;
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    margin: auto;
+}
+#main-nav ul li:hover > ul {
+    display: block;
+    /*&:before { // I don't like this part but it will make child ul's look closer to your design.
+        content: "";
+        position: absolute;
+        right: 0;
+        top: -65px;
+        bottom: -35px;
+        width: 1px;
+        background-color: #ccc;
+    }*/
+}
+#main-nav ul li a {
+    padding: 7px 10px;
+    display: block;
+}
+#main-nav ul li a:hover {
+    color: red;
+}
+#main-nav ul li > ul {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    border:none;
+}
+#main-nav ul li  {
+    background-color: #fff!important;
+    text-transform: uppercase;
+    text-align: left!important;
+}
+/*menu END*/
+
+.blur{
+    /*filter: blur(10px);*/
+    /*backdrop-filter: blur(2px);*/
+    /*background-color:red;*/
+
+}
+

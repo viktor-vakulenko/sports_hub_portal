@@ -27,23 +27,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :alt_text %>
-    <%= form.text_field :alt_text %>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :headline_text %>
-    <%= form.text_field :headline_text %>
-  </div>
-
-  <div class="field">
-    <%= form.label :caption_text %>
-    <%= form.text_field :caption_text %>
-  </div>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.label :parent_id %>
+    <%= form.select :parent_id, options_from_collection_for_select(@categories, "id", "title"), :include_blank => true %>
   </div>
 
   <div class="field">
