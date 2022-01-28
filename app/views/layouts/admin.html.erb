@@ -21,16 +21,17 @@
       <div class="center-block col-md-3">
         <h1>Menu</h1>
         <nav id="main-nav">
-
           <% @categories.each do |category| %>
             <ul>
               <% unless (category.parent_id) %>
-                <li class="text-center p-2 shadow-sm"><%=
-                  link_to category.title, category %>
+                <li class="text-center p-2 shadow-sm">
+                  <%= link_to category.title, category %>
+                  <% @sub_categories = Category.parent_categories(category.id);%>
                   <ul>
-                    <% category.descendants.each do |sub_category| %>
-                      <li class="text-center p-2 shadow-sm"><%=
-                        sub_category.title %></li>
+                    <% @sub_categories.each do |sub_category| %>
+                      <li class="text-center p-2 shadow-sm">
+                        <%= link_to sub_category.title, sub_category %>
+                      </li>
                     <% end %>
                   </ul>
                 </li>

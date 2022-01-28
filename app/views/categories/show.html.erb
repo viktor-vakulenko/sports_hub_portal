@@ -4,8 +4,14 @@
   <% if (@category.parent_id) %>
     <strong>Parent category:</strong>
     <strong><%= Category.find_by(id: @category.parent_id).title %></strong>
-  <% end %>
   ID: <%= @category.parent_id %>
+  <% end %>
+
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @category.title %>
 </p>
 
 <p>

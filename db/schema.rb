@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_27_142737) do
+ActiveRecord::Schema.define(version: 2022_01_28_091931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 2022_01_27_142737) do
     t.string "photo_of_the_day_title"
     t.text "photo_of_the_day_description"
     t.string "photo_of_the_day_author"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "subcategories", force: :cascade do |t|
+    t.integer "parent_id"
+    t.integer "team_id"
+    t.integer "location_id"
+    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
