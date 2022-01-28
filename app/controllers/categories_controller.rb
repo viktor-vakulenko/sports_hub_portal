@@ -1,6 +1,29 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[ show edit update destroy ]
   skip_before_action :authenticate_user!
+
+  attr_accessible :name, :parent
+
+  has_many :categories
+  belongs_to :parent, :class_name => "Category"
+  has_many :children, :class_name => "Category", :foreign_key => 'parent_id'
+
+  scope :top_level, where(:parent_id => nil)
+
+  def descendents
+    children.map do |child|
+      [child] + child.descendents
+    end.flatten
+  end
+
+  def self_and_descendents
+    [self] + descendents
+  end
+
+  def descendent_categories
+    self_and_descendents.map(&:cat_pictures).flatten
+  end
+
   # GET /categories or /categories.json
   def index
     @categories = Category.all
@@ -60,13 +83,14 @@ class CategoriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_category
-      @category = Category.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def category_params
-      params.require(:category).permit(:parent_id, :team_id, :location_id, :title, :comment)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_category
+    @category = Category.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def category_params
+    params.require(:category).permit(:parent_id, :team_id, :location_id, :title, :comment)
+  end
 end

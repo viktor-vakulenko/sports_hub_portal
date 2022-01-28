@@ -30,6 +30,10 @@
     <%= form.label :content %>
     <%= form.text_area :content %>
   </div>
+  <div class="field">
+    <%= form.label :category_id %>
+    <%= form.select :category_id, options_from_collection_for_select(@categories, "id", "title"), :include_blank => true %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>
