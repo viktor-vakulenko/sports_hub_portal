@@ -1,24 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class=" w-75 d-flex image-section">
+  <div class="col-md-8"><img src="https://img.championat.com/s/735x490/news/big/p/t/golovin-ne-popal-v-sbornuju-sezona-ligi-1-ot-france_1588337299428940190.jpg" alt="Girl in a jacket" min-width="100%" height=""></div>
+  <div class="col-md-4 vcenter-item">
+    <div class="image-text-wrapper shadow-lg tab-user-info ">
+      <div class="p-3 col text-left ">
+        <span class="text-secondary py-3">Published / <%= @article.created_at %></span><br/>
+        <span class="text-danger py-3">London Games return in 2019</span><br/>
+        <span class="text-dark"><%= @article.title %></span>
+        <br/>
+        <br/>
+      </div>
+      <div>
+        <button type="button" class="btn btn-danger btn-danger-not-rounded">More</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-9 py-3">
+  <span><%= @article.content %></span>
 
-<p>
-  <strong>Alt:</strong>
-  <%= @article.alt %>
-</p>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>Caption:</strong>
-  <%= @article.caption %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @article.content %>
-</p>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>

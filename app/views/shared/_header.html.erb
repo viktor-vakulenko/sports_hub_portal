@@ -15,7 +15,6 @@
         <%= image_tag("search-icon.jpg", class: "search-icon") %>
         <%= form_with(url: search_articles_path, local: true, method: :get, class: "search-form") do |form| %>
           <%= form.text_field :keyword, placeholder: "Search by", class: "search-input" %>
-          <%= form.submit "Search", class: "search-btn" %>
         <% end %>
       </div>
     </div>
@@ -31,7 +30,10 @@
     </div>
     <div class="login-container col">
       <div class="row align-items-center">
-        <% if user_signed_in? %>
+        <% def edit_user_registration_path
+             # code here
+           end
+           if user_signed_in? %>
           <div class="login col-sm-6 px-5">
              <span class="dropdown">
             <button>
@@ -40,9 +42,8 @@
             <label>
               <input type="checkbox">
               <ul>
-                  <li><%= link_to t('view_profile'), edit_user_registration_path %></li>
-                  <li><%= link_to t('change_password'), new_user_password_path %></li>
-                  <li>My surveys</li>
+                  <li><%= link_to t('view_profile'), edit_user_path(current_user.id) %></li>
+                  <li><%= link_to t('change_password'), edit_user_registration_path %></li>
                   <li>Team hub</li>
                   <li><%= link_to t('log_out'), destroy_user_session_path, method: :delete %></li>
               </ul>

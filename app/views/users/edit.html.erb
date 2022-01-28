@@ -4,7 +4,6 @@
     <div class="col-md-3 text-center"></div>
     <div class="col-md-3 text-left">
       <h2>Edit <%= @user.first_name %> info</h2>
-      <h2>Edit <%= user_path(@user) %> info</h2>
       <div class="form-group">
         <%= form_for @user, url: user_path(@user), action: :update, method: :put do |f| %>
           <%= f.label t('first_name') , autofocus: true, class: "text-uppercase py-2"%>

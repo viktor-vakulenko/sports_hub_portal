@@ -1,3 +1,24 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.image-text-wrapper {
+  background-color: #f6f6f6;
+  min-width: 300px;
+  margin-left: -20%;
+  min-height: auto;
+}
+
+.image-section {
+  min-height: 300px;
+}
+.vcenter-item {
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+.btn-danger-not-rounded {
+  border-radius: 0 !important;
+  min-width: 200px;
+
+}
