@@ -29,7 +29,8 @@
 
   <div class="field">
     <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%#= form.text_area :content %>
+    <%= form.text_area :content, :class => 'tinymce', :rows => 10, :cols => 50 %>
   </div>
   <div class="field">
     <%= form.label :category_id %>
@@ -40,3 +41,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+<%= tinymce %>

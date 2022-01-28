@@ -38,6 +38,7 @@ group :development, :test do
   gem 'mailcatcher'
   gem 'popper_js', '~> 1.2'
   gem 'rspec-rails'
+  gem 'tinymce-rails'
 end
 
 group :development do

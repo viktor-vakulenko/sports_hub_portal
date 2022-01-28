@@ -8,8 +8,12 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require turbolinks
+//= require tinymce
+//= require tinymce-jquery
 //= require_self
 //= require_tree .
+
+
 require("jquery/src/jquery")
 require("bootstrap")
 require("custom/user_profile")
