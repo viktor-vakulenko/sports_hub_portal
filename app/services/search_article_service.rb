@@ -1,3 +1,3 @@
-class SearchArticleService < ApplicationService
+class SearchArticleService
 
 end

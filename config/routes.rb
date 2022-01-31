@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :categories
+
   # resources :categories do
   #   # end
   devise_for :users
@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+  end
+  resources :categories do
+    resources :articles
   end
   namespace :admin do
     resources :articles do

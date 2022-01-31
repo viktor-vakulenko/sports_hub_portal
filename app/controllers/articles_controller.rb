@@ -4,10 +4,14 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    @articles = Article.where(category_id: params[:category_id]) if params[:category_id]
+    add_breadcrumbs('Articles', nil, true)
   end
 
   # GET /articles/1 or /articles/1.json
   def show
+    add_breadcrumbs('Articles', category_articles_path(16), true)
+    # add_breadcrumbs(@articles.title, nil, true)
   end
 
   # GET /articles/new

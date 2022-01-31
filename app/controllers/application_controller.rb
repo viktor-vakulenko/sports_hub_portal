@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
   before_action :set_categories
+  before_action :set_breadcrumbs
   layout :determine_layout
 
   def set_categories
@@ -18,6 +19,18 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       redirect_to root_path unless current_user.admin
     end
+  end
+
+  # @param [FalseClass] current
+  def add_breadcrumbs(label, path, current = false)
+    @breadcrumbs << {
+      label: label,
+      path: path,
+      current: current
+    }
+  end
+  def set_breadcrumbs
+    @breadcrumbs = []
   end
 
   protected

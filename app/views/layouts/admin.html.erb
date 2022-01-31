@@ -23,13 +23,14 @@
     <div class="row">
       <div class="center-block col-md-3">
         <h1>Menu</h1>
+        <%= link_to "Articles by cat",  category_articles_path(12) %>
         <nav id="main-nav">
           <% @categories.each do |category| %>
             <ul>
               <% unless (category.parent_id) %>
                 <li class="text-center p-2 shadow-sm">
                   <%= link_to category.title, category %>
-                  <% @sub_categories = Category.parent_categories(category.id);%>
+                  <% @sub_categories = Category.sub_categories(category.id);%>
                   <ul>
                     <% @sub_categories.each do |sub_category| %>
                       <li class="text-center p-2 shadow-sm">
