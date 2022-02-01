@@ -88,7 +88,7 @@ class ArticlesController < ApplicationController
   # end
 
   def search
-    @article_search = Article.search(params[:keyword])
+    @article_search = SearchArticleService.search_validation(params[:keyword])
   end
 
   private
