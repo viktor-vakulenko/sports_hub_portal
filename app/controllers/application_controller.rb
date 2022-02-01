@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
 
   def determine_layout
     if user_signed_in? && current_user.admin?
-      'admin'
+      'sessions'
     else
       'application'
     end

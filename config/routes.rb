@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   # resources :categories do
   #   # end
-  devise_for :users
+  devise_for :users, :controllers => {
+    :sessions => "users/sessions",
+    :registrations => "users/registrations"
+  }
   resources :users, path: 'users-info', only: %i[show edit update]
   resources :articles do
     collection do

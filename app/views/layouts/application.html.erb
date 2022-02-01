@@ -1,88 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>SportHubPortal</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>SportHubPortal</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= tinymce_assets %>
-    <script type="text/javascript" src="/assets/tinymce.js"></script>
-  </head>
-  <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(new_user_password_path) %>
-    <%= render partial: 'shared/header' %>
-  <% end %>
-  <body>
-  <% if current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(new_user_password_path) %>
-    <%= yield %>
-  <% else %>
-    <div class="container-fluid">
-    <div class="row">
-      <div class="center-block col-md-3">
-        <h1>Menu</h1>
-        <nav id="main-nav">
-          <% @categories.each do |category| %>
-            <ul>
-              <% unless (category.parent_id) %>
-                <li class="text-center p-2 shadow-sm">
-                  <%= link_to category.title, category %>
-                  <% @sub_categories = Category.parent_categories(category.id);%>
-                  <ul>
-                    <% @sub_categories.each do |sub_category| %>
-                      <li class="text-center p-2 shadow-sm">
-                        <%= link_to sub_category.title, sub_category %>
-                      </li>
-                    <% end %>
-                  </ul>
-                </li>
-              <% end %>
-            </ul>
-          <% end %>
-          <ul>
-            <li><%= link_to t('articles'), articles_path  %></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Projects</a>
-              <ul>
-                <li>
-                  <a href="#">Project 1</a>
-                  <ul>
-                    <li><a href="#">Project 2</a>
-                      <ul>
-                        <li><a href="#">Project 3</a>
-                          <ul>
-                            <li><a href="#">Project 4</a>
-                              <ul>
-                                <li><a href="#">Project 5</a></li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="#">Project 2</a></li>
-                <li><a href="#">Project 3</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="center-block col-md-9">
-        <p class=""><%= notice %></p>
-        <p class=""><%= alert %></p>
-        <%= yield %>
-      </div>
-    </div>
-    </div>
-  <% end %>
-
-  </body>
-  <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(new_user_password_path) %>
-    <%= render partial: 'shared/footer' %>
-  <% end %>
-
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= tinymce_assets %>
+  <script type="text/javascript" src="/assets/tinymce.js"></script>
+</head>
+<body>
+<% if content_for?(:content) %>
+  <%= yield(:content) %>
+<% else %>
+  <%= render partial: 'shared/header' %>
+  <%= render partial: 'shared/sidebar' %>
+  <%= render partial: 'shared/footer' %>
+<% end %>
+</body>
 </html>

@@ -1,7 +1,6 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-6 col-login-image">
-
       <div class="logo-container__login position-absolute">
         <a href="/">
           <span class="logo-text">Sports Hub</span>
@@ -11,7 +10,7 @@
     </div>
     <div class="col-md-6 ">
       <div class="container p-3 text-end">
-        <span class="px-3"><%= t('already_have_login') %> </span> <%= link_to 'Log in', new_user_session_path, class: "btn btn-outline-danger"%>
+        <span class="px-3"><%= t('already_have_login') %> </span> <%= link_to 'Log in', new_user_session_path, class: "btn btn-outline-danger" %>
 
       </div>
       <div class="wrapper align-items-center col-login-fields-wrapper">
@@ -22,27 +21,28 @@
             <%= render "devise/shared/error_messages", resource: resource %>
             <div class="row">
               <div class="col">
-                <%= f.label :first_name, class: "text-uppercase py-2"%>
+                <%= f.label :first_name, class: "text-uppercase py-2" %>
                 <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
               </div>
               <div class="col">
-                <%= f.label :last_name, class: "text-uppercase py-2"%>
+                <%= f.label :last_name, class: "text-uppercase py-2" %>
                 <%= f.text_field :last_name, autofocus: true, class: "form-control" %>
               </div>
             </div>
             <div class="form-group">
-              <%= f.label :email, class: "text-uppercase py-2"%>
+              <%= f.label :email, class: "text-uppercase py-2" %>
               <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "jonhdoe@gmail.com" %>
             </div>
 
             <div class="form-group">
-              <%= f.label :password, class: "text-uppercase py-2"%>
-                <%= f.password_field :password, class: "form-control", autocomplete: "new-password" , placeholder: "#{@minimum_password_length} #{t('placeholder_password')}" %>
+              <%= f.label :password, class: "text-uppercase py-2" %>
+              <%= f.password_field :password, class: "form-control", autocomplete: "new-password", placeholder: "#{@minimum_password_length} #{t('placeholder_password')}" %>
             </div>
             <div class="actions py-3">
               <%= f.submit "#{t('sign_up')}", class: "btn-lg btn-danger " %>
             </div>
           <% end %>
+        </div>
       </div>
     </div>
   </div>

@@ -11,79 +11,14 @@
   <%= tinymce_assets %>
   <script type="text/javascript" src="/assets/tinymce.js"></script>
 </head>
-
-<% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(new_user_password_path) %>
-  <%= render partial: 'shared/header' %>
-<% end %>
 <body>
-<% if current_page?(new_user_session_path()) || current_page?(new_user_registration_path) || current_page?(new_user_password_path) %>
-  <%= yield %>
+<% if content_for?(:content) %>
+  <%= yield(:content) %>
 <% else %>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="center-block col-md-3">
-        <h1>Menu</h1>
-        <%= link_to "Articles by cat",  category_articles_path(12) %>
-        <nav id="main-nav">
-          <% @categories.each do |category| %>
-            <ul>
-              <% unless (category.parent_id) %>
-                <li class="text-center p-2 shadow-sm">
-                  <%= link_to category.title, category_articles_path(category.id) %>
-                  <% @sub_categories = Category.sub_categories(category.id);%>
-                  <ul>
-                    <% @sub_categories.each do |sub_category| %>
-                      <li class="text-center p-2 shadow-sm">
-                        <%= link_to sub_category.title, category_articles_path(sub_category.id) %>
-                      </li>
-                    <% end %>
-                  </ul>
-                </li>
-              <% end %>
-            </ul>
-          <% end %>
-          <ul>
-            <li class="text-center p-2 shadow-sm"><%= link_to t('articles'), articles_path %></li>
-            <li class="text-center p-2 shadow-sm"><%= link_to 'Category', categories_path %>
-              <ul>
-                <li class="text-center p-2 shadow-sm">
-                  <a href="#">Project 1</a>
-                  <ul>
-                    <li class="text-center p-2 shadow-sm"><a href="#">Project 2</a>
-                      <ul>
-                        <li class="text-center p-2 shadow-sm"><a href="#">Project 3</a>
-                          <ul>
-                            <li class="text-center p-2 shadow-sm"><a href="#">Project 4</a>
-                              <ul>
-                                <li class="text-center p-2 shadow-sm"><a href="#">Project 5</a></li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li class="text-center p-2 shadow-sm"><a href="#">Project 2</a></li>
-                <li class="text-center p-2 shadow-sm"><a href="#">Project 3</a></li>
-              </ul>
-            </li>
-            <li class="text-center p-2 shadow-sm"><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div id="blur" class="col-md-9">
-        <p class=""><%= notice %></p>
-        <p class=""><%= alert %></p>
-        <%= yield %>
-      </div>
-    </div>
-  </div>
-<% end %>
-
-</body>
-<% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(new_user_password_path) %>
+  <%= render partial: 'shared/header' %>
+  <%= render partial: 'shared/sidebar' %>
   <%= render partial: 'shared/footer' %>
 <% end %>
-
+</body>
 </html>
+

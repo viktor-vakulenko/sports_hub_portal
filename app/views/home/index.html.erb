@@ -1,41 +1,39 @@
-      <h1>Home#index</h1>
-      <p>Find me in app/views/home/index.html.erb</p>
-      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam aut commodi cumque ex, excepturi
-        in
-        ipsum laboriosam laudantium molestias mollitia nostrum numquam pariatur quas quibusdam rem, tenetur ullam vero!
+<div class=" w-75 d-flex image-section">
+  <div class="col-md-8"><%= image_tag("article_image.jpg") %></div>
+  <div class="col-md-4 vcenter-item">
+    <div class="image-text-wrapper shadow-lg tab-user-info ">
+      <div class="p-3 col text-left ">
+        <span class="text-secondary py-3">Published / <%=
+              # @article.created_at.strftime("%d.%m.%Y")
+        %></span><br/>
+        <span class="text-danger py-3"><%=
+              # @article.alt
+        %></span><br/>
+        <span class="text-dark"><%=
+              # @article.title
+        %></span>
+        <br/>
+        <br/>
       </div>
-      <div>Culpa error molestiae mollitia qui suscipit? Animi aperiam deleniti ex, impedit inventore laboriosam nostrum
-        perferendis sapiente sequi tenetur? Dolores, error excepturi ipsam laborum nulla recusandae sequi sint vel
-        veniam
-        voluptatem?
+      <div>
+        <button type="button" class="btn btn-danger btn-danger-not-rounded">More</button>
       </div>
-      <div>Debitis dolore id inventore nam optio repellendus, tempore. Accusantium commodi, cupiditate doloribus enim
-        est
-        eveniet laudantium magni odit quas reiciendis saepe ullam veritatis voluptas. Architecto minima modi nihil nobis
-        quisquam?
+    </div>
+  </div>
+</div>
+<div class="col-md-9 py-3">
+  <%#= @article.content.html_safe%>
+  <%# @articles.each do |article| %>
+    <div class="card flex-md-row shadow h-md-250 border-0 my-3">
+      <%= image_tag("article_image.jpg", {style:"min-width: 280px; height: 180px;",class: "card-img-right flex-auto d-none d-md-block p-2"} ) %>
+      <div class="card-body d-flex flex-column align-items-start">
+        <h3 class="mb-0">
+          <%#= link_to article.title, article, class:"d-inline-block mb-2 clickable-block" %> Title
+        </h3>
+        <p class="card-text mb-auto">
+          <%#= article.caption %> Caption
+        </p>
       </div>
-      <div>Commodi dolore enim nesciunt quae qui repudiandae sit totam? Distinctio dolore fuga illum iure magnam maxime
-        repellendus ullam? Animi at autem culpa iusto libero magni nam, numquam quam repudiandae vitae.
-      </div>
-      <div>Cupiditate deleniti deserunt dolorem ea et fugiat fugit hic itaque molestias non, numquam officia quam, quas,
-        quis rem reprehenderit velit voluptate. Delectus deserunt eum ipsam natus provident, reiciendis sapiente ut?
-      </div>
-      <div>Ad animi asperiores beatae corporis dicta dolores eaque enim expedita explicabo fuga minima natus nisi nobis
-        non, nulla obcaecati placeat porro quae quas quod repudiandae sequi tempora vitae voluptatem voluptatum!
-      </div>
-      <div>Atque debitis dolor natus. Commodi cupiditate ducimus, ex iste praesentium quia reprehenderit sequi
-        voluptatum!
-        Aliquid, blanditiis consequuntur dolorem error est ipsum laboriosam, laborum nisi nulla quibusdam suscipit
-        tempore
-        vel voluptas.
-      </div>
-      <div>Accusamus ad aliquid asperiores assumenda aut consequuntur corporis deserunt dignissimos dolorum, eligendi ex
-        exercitationem expedita maxime modi mollitia necessitatibus nobis quae qui quibusdam repellendus sed sequi unde
-        vero voluptate voluptatum.
-      </div>
-      <div>Animi aperiam, commodi dicta dignissimos dolor dolores dolorum ex exercitationem facere fuga, neque qui quia
-        repellendus sequi ullam vitae voluptatem! A assumenda blanditiis cum dicta fuga impedit minus odit rem.
-      </div>
-      <div>Ipsa ipsam magnam numquam odio officiis quos, similique ut voluptatibus! A, culpa dignissimos distinctio
-        doloribus eius est excepturi fuga, ipsum officia officiis praesentium quas sunt totam! Est harum ipsa magnam?
-      </div>
+    </div>
+  <%# end %>
+</div>
