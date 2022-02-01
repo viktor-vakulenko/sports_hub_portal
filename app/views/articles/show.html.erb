@@ -1,6 +1,6 @@
 <%= render "shared/breadcrumbs" %>
 <div class=" w-75 d-flex image-section">
-  <div class="col-md-8"><%= image_tag("article_image.jpg") %></div>
+  <div class="col-md-8"><%= image_tag @article.image, style:"max-width:800px; display:block" %></div>
   <div class="col-md-4 vcenter-item">
     <div class="image-text-wrapper shadow-lg tab-user-info ">
       <div class="p-3 col text-left ">

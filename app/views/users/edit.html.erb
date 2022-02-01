@@ -3,9 +3,17 @@
   <div class="row">
     <div class="col-md-3 text-center"></div>
     <div class="col-md-3 text-left">
-      <h2>Edit <%= @user.first_name %> info</h2>
       <div class="form-group">
         <%= form_for @user, url: user_path(@user), action: :update, method: :put do |f| %>
+          <div class="form-group">
+            <% if @user.avatar.attached? %>
+              <%=  image_tag @user.avatar, class:'mx-auto d-block p-2', style:"width:120px; display:block; border-radius: 60px;"%>
+            <% else %>
+                <%=  image_tag 'default-avatar.png',  class:'mx-auto d-block p-2', style:"width:120px; display:block; border-radius: 60px;"%>
+            <% end %>
+            <%= f.file_field :avatar, class: "form-control" %>
+
+          </div>
           <%= f.label t('first_name') , autofocus: true, class: "text-uppercase py-2"%>
           <%= f.text_field :first_name, class: "text-uppercase py-2", class: "form-control" %>
           <%= f.label t('last_name'), class: "text-uppercase py-2" %>
