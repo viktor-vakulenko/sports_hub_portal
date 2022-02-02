@@ -1,25 +1,24 @@
 <div class="container-fluid">
   <div class="row">
     <div class="center-block col-md-3">
-      <h1>Menu</h1>
-      <nav id="main-nav">
+      <nav id="main-nav" class="p-5">
         <ul>
         <% @categories.each do |category| %>
             <% unless (category.parent_id) %>
-              <li class="text-center p-2 shadow-sm">
-                <%= link_to category.title, category_articles_path(category.id) %>
+              <li class="text-center p-2">
+                <%= link_to category.title, category_articles_path(category.id), class:'menu-item__text ' %>
                 <% @sub_categories = Category.sub_categories(category.id);%>
                 <ul>
                   <% @sub_categories.each do |sub_category| %>
                     <li class="text-center p-2 shadow-sm sub_category_menu_item">
-                      <%= link_to sub_category.title, category_articles_path(sub_category.id) %>
+                      <%= link_to sub_category.title, category_articles_path(sub_category.id), class:'menu-item__text' %>
                     </li>
                   <% end %>
                 </ul>
               </li>
             <% end %>
         <% end %>
-        <li><%= link_to t('articles'), articles_path %></li>
+        <li class="text-center p-2"><%= link_to t('articles'), articles_path , class:'menu-item__text'%></li>
         </ul>
       </nav>
     </div>

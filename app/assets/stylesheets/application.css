@@ -397,22 +397,17 @@ form.search-form {
 }
 #main-nav ul li:hover > ul {
     display: block;
-    /*&:before { // I don't like this part but it will make child ul's look closer to your design.
-        content: "";
-        position: absolute;
-        right: 0;
-        top: -65px;
-        bottom: -35px;
-        width: 1px;
-        background-color: #ccc;
-    }*/
+}
+#main-nav ul li a:hover {
+    color: #D72130;
+    border-right: 5px solid #D72130;
 }
 #main-nav ul li a {
     padding: 7px 10px;
     display: block;
 }
 #main-nav ul li a:hover {
-    color: red;
+    color: #D72130;
 }
 #main-nav ul li > ul {
     display: none;
@@ -431,12 +426,11 @@ form.search-form {
 .blur{
     /*filter: blur(10px);*/
     /*backdrop-filter: blur(2px);*/
-    /*background-color:red;*/
+    /*background-color:#D72130;*/
 
 }
 .clickable-block {
-    display: block;
-    height: 100%;
+    display: block!important;
     width: 100%;
     text-decoration: none;
     font-weight: bold!important;
@@ -446,5 +440,82 @@ form.search-form {
 .breadcrumb > li + li:before {
     content: "\3E"!important;
 }
+.breakdown {
+    display: block;
+    position: relative;
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    top: -25px;
+    background-color: #ffff;
+    margin: auto;
+    padding-top: 13px;
+    font-weight: bold;
+}
+.text-limited{
+    overflow: hidden;
+    text-overflow: ellipsis;display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.triangle-right {
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 85px solid transparent;
+    border-left: 220px solid #D72130;
+    border-bottom: 85px solid transparent;
+    padding: -29px;
+    margin-left: -10px;
+    margin-top: -30px;
+}
+.triangle-text-wrapper{
+    display: block;
+    position: absolute;
+    margin-left: -10px;
+    margin-top: 15px;
+    width: auto;
+}
+.triangle-text__bold{
+    font-weight: bold;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+.triangle-text__normal{
+    font-weight: normal;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-transform: uppercase;
 
-
+}
+.photo-of-the-day{
+    padding:0;
+}
+.most-article{
+    font-size: 1rem;
+    overflow: hidden;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+}
+.most-article:after {
+    content: "";
+    display: inline-block;
+    vertical-align: bottom;
+    width: 100%;
+    margin-right: -100%;
+    margin-left: 5px;
+    border: 1px solid #B2B2B2;
+}
+.menu-item__text{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+}

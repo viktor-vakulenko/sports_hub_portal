@@ -7,6 +7,29 @@
   min-width: 400px;
   margin-left: -20%;
   min-height: auto;
+
+}
+.image-text__date{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #7F7B7B;
+}
+.image-text__title{
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #C63638;
+}
+.image-text__caption{
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 30px;
 }
 
 .image-section {
