@@ -1,31 +1,43 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="center-block col-md-3">
-      <nav id="main-nav" class="p-5">
-        <ul>
+<div class="center-block col-md-3">
+  <div class="container d-flex flex-column p-5">
+    <nav id="main-nav" class="">
+      <ul>
         <% @categories.each do |category| %>
-            <% unless (category.parent_id) %>
-              <li class="text-center p-2">
-                <%= link_to category.title, category_articles_path(category.id), class:'menu-item__text ' %>
-                <% @sub_categories = Category.sub_categories(category.id);%>
-                <ul>
-                  <% @sub_categories.each do |sub_category| %>
-                    <li class="text-center p-2 shadow-sm sub_category_menu_item">
-                      <%= link_to sub_category.title, category_articles_path(sub_category.id), class:'menu-item__text' %>
-                    </li>
-                  <% end %>
-                </ul>
-              </li>
-            <% end %>
+          <% unless (category.parent_id) %>
+            <li class="text-center p-2">
+              <%= link_to category.title, category_articles_path(category.id), class: 'menu-item__text ' %>
+              <% @sub_categories = Category.sub_categories(category.id); %>
+              <ul>
+                <% @sub_categories.each do |sub_category| %>
+                  <li class="text-center p-2 shadow-sm sub_category_menu_item">
+                    <%= link_to sub_category.title, category_articles_path(sub_category.id), class: 'menu-item__text' %>
+                  </li>
+                <% end %>
+              </ul>
+            </li>
+          <% end %>
         <% end %>
-        <li class="text-center p-2"><%= link_to t('articles'), articles_path , class:'menu-item__text'%></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="center-block col-md-9">
-      <p class=""><%= notice %></p>
-      <p class=""><%= alert %></p>
-      <%= yield %>
+        <li class="text-center p-2"><%= link_to t('articles'), articles_path, class: 'menu-item__text' %></li>
+        <li class="text-center p-2"><%= link_to 'Team Hub', articles_path, class: 'menu-item__text' %></li>
+        <li class="text-center p-2"><%= link_to 'LIFESTYLE', articles_path, class: 'menu-item__text' %></li>
+        <li class="text-center p-2"><%= link_to 'DEALBOOK', articles_path, class: 'menu-item__text' %></li>
+        <li class="text-center p-2"><%= link_to 'VIDEO', articles_path, class: 'menu-item__text' %></li>
+      </ul>
+    </nav>
+    <div class="row nav-social p-3 ">
+      <span class="p-3">Follow</span>
+      <div class="col-sm-6 p-1 nav-social__item">
+        <a href="http://www.facebook.com" target="_blank" rel="nofollow"><%= image_tag("FB.png", class: "social-icon") %></a>
+      </div>
+      <div class="col-sm-6 p-1 nav-social__item">
+        <a href="http://www.twitter.com" target="_blank" rel="nofollow"><%= image_tag("twitter.png", class: "social-icon__twitter") %></a>
+      </div>
+      <div class="col-sm-6 p-1 nav-social__item">
+        <a href="http://www.google.com" target="_blank" rel="nofollow"><%= image_tag("google.png", class: "social-icon") %></a>
+      </div>
+      <div class="col-sm-6 p-1 nav-social__item">
+        <a href="http://www.google.com" target="_blank" rel="nofollow"><%= image_tag("youtube.png", class: "social-icon__youtube") %></a>
+      </div>
     </div>
   </div>
 </div>

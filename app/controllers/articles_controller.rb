@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1 or /articles/1.json
   def show
     add_breadcrumbs('Articles', category_articles_path(16), true)
-    # add_breadcrumbs(@articles.title, nil, true)
+    @article.increase_visit
   end
 
   # GET /articles/new
@@ -100,6 +100,6 @@ class ArticlesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def article_params
-    params.require(:article).permit(:alt, :title, :caption, :content, :category_id, :image)
+    params.require(:article).permit(:alt, :title, :caption, :content, :category_id, :image, :visit_counter)
   end
 end

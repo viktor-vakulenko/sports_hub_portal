@@ -8,15 +8,13 @@
   <% end %>
   <div class="col-md-4 vcenter-item">
     <div class="image-text-wrapper shadow-lg tab-user-info ">
-      <div class="p-3 col text-left ">
-        <span class="text-secondary py-3">Published / <%= @article.created_at.strftime("%d.%m.%Y") %></span><br/>
-        <span class="text-danger py-3"><%= @article.alt %></span><br/>
-        <span class="text-dark"><%= @article.title %></span>
-        <br/>
-        <br/>
+      <div class="p-3 d-flex flex-column text-left">
+        <span class="image-text__date py-1">Published / <%= @article.created_at.strftime("%d.%m.%Y") %></span>
+        <span class="image-text__title py-1"><%= @article.alt %></span>
+        <span class="image-text__caption"><%= @article.title %></span>
       </div>
       <div>
-        <button type="button" class="btn btn-danger btn-danger-not-rounded">More</button>
+        <button type="button" class="btn btn-danger btn-danger-not-rounded">Share</button>
       </div>
     </div>
   </div>

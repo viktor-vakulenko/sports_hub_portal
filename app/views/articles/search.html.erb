@@ -2,7 +2,6 @@
   <%= form.text_field :keyword, placeholder: "Search for articles", class: "search-input" %>
   <%= form.submit "Search", class: "search-btn" %>
 <% end %>
-<%= debug @article_search  %>
 <% if @article_search == [] %>
   <h2 class = "seach-result">No results</h2>
 <% else %>
@@ -12,7 +11,7 @@
         <li class = "list">
           <%= link_to article_path(article.id) do %>
             <h3 class='article-title'><%= article.title %></h3>
-            <h6 class='article-title'><%= article.content %></h6>
+            <h6 class='article-title text-limited'><%= article.content %></h6>
             <p class = "root-show">Click to see details </p>
           <% end %>
         </li>

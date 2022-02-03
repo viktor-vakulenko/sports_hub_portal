@@ -1,10 +1,9 @@
 module UsersHelper
-  def self.user_avatar(user_id)
-    user = User.find(user_id)
+  def user_avatar(user)
     if user.avatar.attached?
-      image_tag user.avatar
+      user.avatar
     else
-      image_tag 'default_avatar.jpg'
+      'default_avatar.jpg'
     end
   end
 end
