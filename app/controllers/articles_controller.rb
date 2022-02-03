@@ -11,7 +11,8 @@ class ArticlesController < ApplicationController
   # GET /articles/1 or /articles/1.json
   def show
     add_breadcrumbs('Articles', category_articles_path(16), true)
-    @article.increase_visit
+    # @article.increase_visit
+    Article.increment_counter(:visit_counter, @article.id)
   end
 
   # GET /articles/new
