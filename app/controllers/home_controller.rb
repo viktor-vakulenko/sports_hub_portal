@@ -4,6 +4,7 @@ class HomeController < ApplicationController
 
   def index
     @categories = Category.all
+    @most_popular_articles = Article.all.order('visit_counter DESC').limit(3)
   end
 
   # def set_homepage
@@ -13,4 +14,6 @@ class HomeController < ApplicationController
   # def edit
   # end
 
+  def show
+  end
 end

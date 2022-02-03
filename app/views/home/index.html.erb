@@ -156,27 +156,19 @@
   <div class="row breackdown-element my-3">
     <div class="col-md-6">
       <p class="text-uppercase most-article">Most popular</p>
-      <div class="on-hover-shadow card flex-md-row border rounded-0">
-        <%= image_tag("article_image.jpg", {style:"min-width: 150px; height: 98px;",class: "card-img-right flex-auto d-none d-md-block p-1"} ) %>
-        <div class="card-body d-flex flex-column align-items-start">
-          <h3 class="mb-0"><%= link_to 'Lorem ipsum', root_path, class:"d-inline-block mb-2 clickable-block" %></h3>
-          <p class="card-text mb-auto text-limited">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid assumenda cumque enim eos ex, excepturi laudantium magnam nobis nostrum quas quia quisquam ratione recusandae reiciendis repudiandae rerum sed. Dolore?</p>
+      <% @most_popular_articles.each do |article|%>
+        <div class="on-hover-shadow card flex-md-row border rounded-0">
+          <% if article.image.attached? %>
+            <%= image_tag article.image, {style:"min-width: 150px; height: 98px;",class: "card-img-right flex-auto d-none d-md-block p-1"} %>
+          <% else %>
+            <%= image_tag 'article_image.jpg', {style:"min-width: 150px; height: 98px;",class: "card-img-right flex-auto d-none d-md-block p-1"} %>
+          <% end %>
+          <div class="card-body d-flex flex-column align-items-start">
+            <h3 class="mb-0"><%= link_to article.title, article, class:"d-inline-block mb-2 clickable-block" %></h3>
+            <p class="card-text mb-auto text-limited"><%= article.caption %></p>
+          </div>
         </div>
-      </div>
-      <div class="on-hover-shadow card flex-md-row border rounded-0">
-        <%= image_tag("article_image.jpg", {style:"min-width: 150px; height: 98px;",class: "card-img-right flex-auto d-none d-md-block p-1"} ) %>
-        <div class="card-body d-flex flex-column align-items-start">
-          <h3 class="mb-0"><%= link_to 'Lorem ipsum', root_path, class:"d-inline-block mb-2 clickable-block" %></h3>
-          <p class="card-text mb-auto text-limited">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid assumenda cumque enim eos ex, excepturi laudantium magnam nobis nostrum quas quia quisquam ratione recusandae reiciendis repudiandae rerum sed. Dolore?</p>
-        </div>
-      </div>
-      <div class="on-hover-shadow card flex-md-row border rounded-0">
-        <%= image_tag("article_image.jpg", {style:"min-width: 150px; height: 98px;",class: "card-img-right flex-auto d-none d-md-block p-1"} ) %>
-        <div class="card-body d-flex flex-column align-items-start">
-          <h3 class="mb-0"><%= link_to 'Lorem ipsum', root_path, class:"d-inline-block mb-2 clickable-block" %></h3>
-          <p class="card-text mb-auto text-limited">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid assumenda cumque enim eos ex, excepturi laudantium magnam nobis nostrum quas quia quisquam ratione recusandae reiciendis repudiandae rerum sed. Dolore?</p>
-        </div>
-      </div>
+        <% end %>
     </div>
     <div class="col-md-6">
       <p class="text-uppercase most-article">Most Commented</p>

@@ -2,27 +2,27 @@
 <div class=" w-75 d-flex image-section">
   <div class="col-md-8">
     <% if @article.image.attached? %>
-    <%= image_tag @article.image, style:"max-width:800px; display:block" %></div>
+      <%= image_tag @article.image, style: "max-width:800px; display:block" %></div>
     <% else %>
-      <%= image_tag 'article_image.jpg', style:"max-width:800px; display:block" %></div>
-  <% end %>
-  <div class="col-md-4 vcenter-item">
-    <div class="image-text-wrapper shadow-lg tab-user-info ">
-      <div class="p-3 d-flex flex-column text-left">
-        <span class="image-text__date py-1">Published / <%= @article.created_at.strftime("%d.%m.%Y") %></span>
-        <span class="image-text__title py-1"><%= @article.alt %></span>
-        <span class="image-text__caption"><%= @article.title %></span>
-      </div>
-      <div>
-        <button type="button" class="btn btn-danger btn-danger-not-rounded">Share</button>
+      <%= image_tag 'article_image.jpg', style: "max-width:800px; display:block" %></div>
+    <% end %>
+    <div class="col-md-4 vcenter-item">
+      <div class="image-text-wrapper shadow-lg tab-user-info ">
+        <div class="p-3 d-flex flex-column text-left">
+          <span class="image-text__date py-1">Published / <%= @article.created_at.strftime("%d.%m.%Y") %></span>
+          <span class="image-text__title py-1"><%= @article.alt %></span>
+          <span class="image-text__caption"><%= @article.title %></span>
+        </div>
+        <div>
+          <button type="button" class="btn btn-danger btn-danger-not-rounded">Share</button>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-<div class="col-md-9 py-3">
-  <%= @article.content.html_safe%>
-</div>
+    </div>
+    <div class="col-md-9 py-3">
+      <%= @article.content.html_safe %>
+    </div>
 
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+    <%= link_to 'Edit', edit_article_path(@article) %> |
+    <%= link_to 'Back', articles_path %>
