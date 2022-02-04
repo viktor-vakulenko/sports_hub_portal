@@ -17,6 +17,8 @@
 require("jquery/src/jquery")
 require("bootstrap")
 require("custom/user_profile")
+require("custom/home_page")
+require("custom/repeater")
 
 
 import Rails from "@rails/ujs"

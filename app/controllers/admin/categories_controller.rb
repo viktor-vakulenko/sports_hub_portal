@@ -1,10 +1,11 @@
-class CategoriesController < ApplicationController
+class Admin::CategoriesController < ApplicationController
   before_action :set_category, only: %i[ show edit update destroy ]
 
   # GET /categories or /categories.json
   def index
     @categories = Category.all
     add_breadcrumbs('Categories', categories_path, true)
+
   end
 
   # GET /categories/1 or /categories/1.json
@@ -58,9 +59,18 @@ class CategoriesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to categories_url, notice: "Category was successfully destroyed." }
       format.json { head :no_content }
-      format.js   { render layout: false }
+      format.js { render layout: false }
     end
   end
+
+
+  def sub_categories
+    @sub_categories = Category.where(parent_id: params[:parent_id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @sub_categories }
+    end
+end
 
   private
 
@@ -74,7 +84,4 @@ class CategoriesController < ApplicationController
     params.require(:category).permit(:parent_id, :team_id, :location_id, :title, :comment)
   end
 
-  def sub_categories(paren_category_id)
-    @sub_categories_result = Category.where.not(parent_id: paren_category_id)
-  end
 end

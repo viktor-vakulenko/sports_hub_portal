@@ -23,7 +23,7 @@
         <td><%= category.title %></td>
         <td><%= link_to 'Show', category %></td>
         <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_category' %></td>
       </tr>
     <% end %>
   </tbody>

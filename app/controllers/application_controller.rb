@@ -6,7 +6,10 @@ class ApplicationController < ActionController::Base
   layout :determine_layout
 
   def set_categories
+    @articles = Article.all
     @categories = Category.all
+    @parent_categories = Category.where(parent_id: nil)
+    @sub_categories = Category.where.not(parent_id: nil)
   end
 
   def after_sign_in_path_for(resource)

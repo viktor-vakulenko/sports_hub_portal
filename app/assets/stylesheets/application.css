@@ -536,3 +536,8 @@ form.search-form {
 .nav-social__item{
     max-width:50px;
 }
+
+.add-button-repeater{
+    position: absolute;
+    padding-left: 100px;
+}
