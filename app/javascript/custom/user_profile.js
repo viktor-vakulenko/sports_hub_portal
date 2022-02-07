@@ -16,32 +16,36 @@ jQuery(() => {
         }
     );
 
-    $('.load-subcategory').change('ajax:success', function() {
-        console.log('test load category')
-        let current_category_id = $( ".load-subcategory option:selected" ).val()
-        $.ajax({
-            url: '/admin/categories/' + current_category_id + '/sub_categories' ,
-            dataType:'json',
-            type: 'GET',
-            // data: { _method: 'GET' },
-            data: {parent_id: current_category_id },
-            success: function (data) {
-                console.log(data)
-                $.each(data, function(arr_el) {
+    function duplicate_main_articles(){
+        $("#repeater").createRepeater({
+            showFirstItemToDefault: true,
+        });
+    }
+    function get_subcategories(){
+        $('.load-subcategory').change('ajax:success', function() {
+            let current_category_id = $( ".load-subcategory option:selected" ).val()
+            $.ajax({
+                url: '/admin/categories/' + current_category_id + '/sub_categories' ,
+                dataType:'json',
+                type: 'GET',
+                data: {parent_id: current_category_id },
+                success: function (data) {
+                    let subcategory = [];
+                    $.each(data, function(index, arr_el) {
+                        subcategory.push(
+                            '<option value="'+arr_el.id+'">'+ arr_el.title +'</option>'
+                        )
+                    });
+                    $('#subcategories-select')
+                        .find('option')
+                        .remove()
+                        .end()
+                        .append(subcategory)
+                    ;
+                }
+            });
+        });
+    }
+    get_subcategories();
 
-                });
-                $('#subcategories-select')
-                    .find('option')
-                    .remove()
-                    .end()
-                    .append('<option value="whatever">text</option>')
-                    .val('whatever')
-                ;
-            }
-        })
-    });
-
-    // $("#repeater").createRepeater({
-    //     showFirstItemToDefault: true,
-    // });
 });
