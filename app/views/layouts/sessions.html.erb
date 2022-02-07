@@ -1,4 +1,8 @@
-<%= content_for :content do %>
-  <%= yield %>
+<%= content_for :content  do %>
+  <% if (user_signed_in? && edit_user_path(current_user.id)) %>
+    <%= render template: 'layouts/application'%>
+  <% else %>
+    <%= yield %>
+    <% end%>
 <% end %>
 <%= render template: 'layouts/application'%>
