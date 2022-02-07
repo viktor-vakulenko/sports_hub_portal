@@ -26,9 +26,13 @@
   <%#= @article.content.html_safe%>
   <% @articles.each do |article| %>
     <div class="card flex-md-row shadow h-md-250 border-0 my-3">
-      <%= image_tag("article_image.jpg", {style:"min-width: 280px; height: 180px;",class: "card-img-right flex-auto d-none d-md-block p-2"} ) %>
+      <% if article.image.attached? %>
+        <%= image_tag(article.image, { style: "min-width: 280px; max-width: 280px; height: 180px;", class: "card-img-right flex-auto d-none d-md-block p-2" }) %>
+      <% else %>
+        <%= image_tag("article_image.jpg", { style: "width: 280px; height: 180px;", class: "card-img-right flex-auto d-none d-md-block p-2" }) %>
+      <% end %>
       <div class="card-body d-flex flex-column align-items-start">
-        <h3 class="mb-0"><%= link_to article.title, article, class:"d-inline-block mb-2 clickable-block" %></h3>
+        <h3 class="mb-0"><%= link_to article.title, article, class: "d-inline-block mb-2 clickable-block" %></h3>
         <p class="card-text mb-auto"><%= article.caption %></p>
       </div>
     </div>

@@ -11,7 +11,7 @@
         <li class = "list">
           <%= link_to article_path(article.id) do %>
             <h3 class='article-title'><%= article.title %></h3>
-            <h6 class='article-title text-limited'><%= article.content %></h6>
+            <h6 class='article-title text-limited'><%= article.content.html_safe %></h6>
             <p class = "root-show">Click to see details </p>
           <% end %>
         </li>
@@ -19,3 +19,5 @@
     </ul>
   </div>
 <% end %>
+NFL
+
