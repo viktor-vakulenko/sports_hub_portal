@@ -41,6 +41,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'simple_form'
   gem 'tinymce-rails'
+  gem 'webdrivers'
   group :test do
     gem 'cucumber-rails', require: false
     gem 'database_cleaner'
