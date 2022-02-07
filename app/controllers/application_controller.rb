@@ -52,4 +52,8 @@ class ApplicationController < ActionController::Base
       'application'
     end
   end
+
+  def authorize_admin
+    redirect_to root_path, status: 401, alert: 'NOT have permissions for edit' unless current_user.admin
+  end
 end
