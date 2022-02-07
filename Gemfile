@@ -33,6 +33,7 @@ group :development, :test do
   gem 'ancestry'
   gem 'bootstrap', '~> 4.0'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'cucumber'
   gem 'devise'
   gem 'jquery-rails'
   gem 'mailcatcher'
@@ -40,6 +41,11 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'simple_form'
   gem 'tinymce-rails'
+  group :test do
+    gem 'cucumber-rails', require: false
+    gem 'database_cleaner'
+    gem 'watir-rails'
+  end
 end
 
 group :development do
