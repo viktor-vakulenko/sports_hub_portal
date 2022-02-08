@@ -9,3 +9,4 @@ Feature:
 
     When I visit any page on the site
     Then I see the Get Started button in the upper-right corner of the page
+

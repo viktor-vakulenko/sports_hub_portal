@@ -33,20 +33,21 @@ group :development, :test do
   gem 'ancestry'
   gem 'bootstrap', '~> 4.0'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'capybara'
   gem 'cucumber'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
   gem 'devise'
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'jquery-rails'
   gem 'mailcatcher'
   gem 'popper_js', '~> 1.2'
   gem 'rspec-rails'
   gem 'simple_form'
   gem 'tinymce-rails'
+  gem 'watir-rails'
   gem 'webdrivers'
-  group :test do
-    gem 'cucumber-rails', require: false
-    gem 'database_cleaner'
-    gem 'watir-rails'
-  end
 end
 
 group :development do

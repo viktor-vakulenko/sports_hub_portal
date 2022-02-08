@@ -12,3 +12,4 @@ Then(/^I see the Get Started button in the upper\-right corner of the page$/) do
   $user.sign_up_button.flash
   expect($user.sign_up_button.present?).to be true
 end
+
