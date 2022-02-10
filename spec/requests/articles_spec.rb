@@ -17,6 +17,7 @@ RSpec.describe "/articles", type: :request do
   # Article. As you add validations to Article, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
+
     skip("Add a hash of attributes valid for your model")
   }
 
