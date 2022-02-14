@@ -50,6 +50,7 @@ group :development, :test do
   gem 'tinymce-rails'
   gem 'watir-rails'
   gem 'webdrivers'
+  gem 'pony'
 end
 
 group :development do

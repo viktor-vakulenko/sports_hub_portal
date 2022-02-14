@@ -58,6 +58,7 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
+        ArticleMailer.with(user: current_user, article: @article).article_updated_email.deliver_later(wait: 1.minute)
         format.html { redirect_to article_url(@article), notice: "Article was successfully updated." }
         format.json { render :show, status: :ok, location: @article }
       else
@@ -65,6 +66,7 @@ class ArticlesController < ApplicationController
         format.json { render json: @article.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   #
