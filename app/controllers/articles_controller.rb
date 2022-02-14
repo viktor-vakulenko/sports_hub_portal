@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!
@@ -16,15 +18,14 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-
     if user_signed_in?
-      if current_user.admin != true
-        redirect_back fallback_location: root_path, notice: "User #{current_user.first_name} is not have permisions"
-      else
+      if current_user.admin == true
         @article = Article.new
+      else
+        redirect_back fallback_location: root_path, notice: "User #{current_user.first_name} is not have permisions"
       end
     else
-      redirect_back fallback_location: root_path, notice: "Guest is not have permisions"
+      redirect_back fallback_location: root_path, notice: 'Guest is not have permisions'
     end
   end
 
@@ -35,7 +36,7 @@ class ArticlesController < ApplicationController
         redirect_back fallback_location: root_path, notice: "User #{current_user.first_name} is not have permisions"
       end
     else
-      redirect_back fallback_location: root_path, notice: "Guest is not have permisions"
+      redirect_back fallback_location: root_path, notice: 'Guest is not have permisions'
     end
   end
 
@@ -45,7 +46,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to article_url(@article), notice: "Article was successfully created." }
+        format.html { redirect_to article_url(@article), notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -59,14 +60,13 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       if @article.update(article_params)
         ArticleMailer.with(user: current_user, article: @article).article_updated_email.deliver_later(wait: 1.minute)
-        format.html { redirect_to article_url(@article), notice: "Article was successfully updated." }
+        format.html { redirect_to article_url(@article), notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @article.errors, status: :unprocessable_entity }
       end
     end
-
   end
 
   #

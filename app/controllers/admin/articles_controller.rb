@@ -1,100 +1,101 @@
-class Admin::ArticlesController < AdminController
-  before_action :set_article, only: %i[show edit update destroy]
+# frozen_string_literal: true
 
-  # GET /articles or /articles.json
-  def index
-    @articles = Article.all
-  end
+module Admin
+  class ArticlesController < AdminController
+    before_action :set_article, only: %i[show edit update destroy]
 
-  # GET /articles/1 or /articles/1.json
-  def show
-  end
-
-  # GET /articles/new
-  def new
-
-    if user_signed_in?
-      if current_user.admin != true
-        redirect_back fallback_location: root_path, notice: "User #{current_user.first_name} is not have permisions"
-      else
-        @article = Article.new
-      end
-    else
-      redirect_back fallback_location: root_path, notice: "Guest is not have permisions"
+    # GET /articles or /articles.json
+    def index
+      @articles = Article.all
     end
-  end
 
-  # GET /articles/1/edit
-  def edit
-    if user_signed_in?
-      if current_user.admin != true
-        redirect_back fallback_location: root_path, notice: "User #{current_user.first_name} is not have permisions"
-      end
-    else
-      redirect_back fallback_location: root_path, notice: "Guest is not have permisions"
-    end
-  end
+    # GET /articles/1 or /articles/1.json
+    def show; end
 
-  # POST /articles or /articles.json
-  def create
-    @article = Article.new(article_params)
-
-    respond_to do |format|
-      if @article.save
-        format.html { redirect_to article_url(@article), notice: "Article was successfully created." }
-        format.json { render :show, status: :created, location: @article }
+    # GET /articles/new
+    def new
+      if user_signed_in?
+        if current_user.admin == true
+          @article = Article.new
+        else
+          redirect_back fallback_location: root_path, notice: "User #{current_user.first_name} is not have permisions"
+        end
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+        redirect_back fallback_location: root_path, notice: 'Guest is not have permisions'
       end
     end
-  end
 
-  # PATCH/PUT /articles/1 or /articles/1.json
-  def update
-    respond_to do |format|
-      if @article.update(article_params)
-        format.html { redirect_to article_url(@article), notice: "Article was successfully updated." }
-        format.json { render :show, status: :ok, location: @article }
+    # GET /articles/1/edit
+    def edit
+      if user_signed_in?
+        if current_user.admin != true
+          redirect_back fallback_location: root_path, notice: "User #{current_user.first_name} is not have permisions"
+        end
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+        redirect_back fallback_location: root_path, notice: 'Guest is not have permisions'
       end
     end
-  end
 
-  # DELETE /articles/1 or /articles/1.json
-  def destroy
+    # POST /articles or /articles.json
+    def create
+      @article = Article.new(article_params)
 
-    if user_signed_in?
-      if current_user.admin != true
-        redirect_back fallback_location: root_path, notice: "User #{current_user.first_name} is not have permisions"
-      else
-        @article.destroy
-
-        respond_to do |format|
-          format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
-          format.json { head :no_content }
+      respond_to do |format|
+        if @article.save
+          format.html { redirect_to article_url(@article), notice: 'Article was successfully created.' }
+          format.json { render :show, status: :created, location: @article }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @article.errors, status: :unprocessable_entity }
         end
       end
-    else
-      redirect_back fallback_location: root_path, notice: "Guest is not have permisions"
     end
-  end
 
-  def search
-    @article_search = Article.search(params[:keyword])
-  end
+    # PATCH/PUT /articles/1 or /articles/1.json
+    def update
+      respond_to do |format|
+        if @article.update(article_params)
+          format.html { redirect_to article_url(@article), notice: 'Article was successfully updated.' }
+          format.json { render :show, status: :ok, location: @article }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @article.errors, status: :unprocessable_entity }
+        end
+      end
+    end
 
-  private
+    # DELETE /articles/1 or /articles/1.json
+    def destroy
+      if user_signed_in?
+        if current_user.admin == true
+          @article.destroy
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_article
-    @article = Article.find(params[:id])
-  end
+          respond_to do |format|
+            format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
+            format.json { head :no_content }
+          end
+        else
+          redirect_back fallback_location: root_path, notice: "User #{current_user.first_name} is not have permisions"
+        end
+      else
+        redirect_back fallback_location: root_path, notice: 'Guest is not have permisions'
+      end
+    end
 
-  # Only allow a list of trusted parameters through.
-  def article_params
-    params.require(:article).permit(:alt, :title, :caption, :content)
+    def search
+      @article_search = Article.search(params[:keyword])
+    end
+
+    private
+
+    # Use callbacks to share common setup or constraints between actions.
+    def set_article
+      @article = Article.find(params[:id])
+    end
+
+    # Only allow a list of trusted parameters through.
+    def article_params
+      params.require(:article).permit(:alt, :title, :caption, :content)
+    end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def edit
     @user = current_user
@@ -12,7 +14,7 @@ class UsersController < ApplicationController
         format.html { flash[:alert] = 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
-        format.html { redirect_to user_path(@user), notice: 'User was not updated.'}
+        format.html { redirect_to user_path(@user), notice: 'User was not updated.' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end

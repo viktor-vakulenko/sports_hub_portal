@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
-
   subject do
     described_class.new(caption: Faker::Lorem.unique.sentence, title: Faker::Lorem.unique.sentence) do |article|
       article.content = Faker::Lorem.paragraphs(number: 4)

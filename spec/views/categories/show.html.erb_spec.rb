@@ -1,20 +1,22 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "categories/show", type: :view do
+RSpec.describe 'categories/show', type: :view do
   before(:each) do
     @category = assign(:category, Category.create!(
-      parent_id: 2,
-      team_id: 3,
-      location_id: 4,
-      alt_text: "Alt Text",
-      headline_text: "Headline Text",
-      caption_text: "Caption Text",
-      content: "MyText",
-      comment: false
-    ))
+                                    parent_id: 2,
+                                    team_id: 3,
+                                    location_id: 4,
+                                    alt_text: 'Alt Text',
+                                    headline_text: 'Headline Text',
+                                    caption_text: 'Caption Text',
+                                    content: 'MyText',
+                                    comment: false
+                                  ))
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes in <p>' do
     render
     expect(rendered).to match(/2/)
     expect(rendered).to match(/3/)

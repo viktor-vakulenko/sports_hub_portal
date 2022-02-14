@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 class ArticleMailer < ApplicationMailer
   def article_updated_email

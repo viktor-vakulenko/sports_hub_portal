@@ -1,0 +1,20 @@
+inherit_from: .rubocop_todo.yml
+AllCops:
+  Exclude:
+    - test.rb
+    - enumerables.rb
+    - 'db/**/*'
+    - 'vendor/**/*'
+  NewCops: enable
+
+Style/Encoding:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false

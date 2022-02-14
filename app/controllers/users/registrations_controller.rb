@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
-class Users::RegistrationsController < Devise::RegistrationsController
-  layout 'sessions'
+module Users
+  class RegistrationsController < Devise::RegistrationsController
+    layout 'sessions'
 
-  protected
+    protected
 
-  def after_update_path_for(resource)
-    user_path(resource)
+    def after_update_path_for(resource)
+      user_path(resource)
+    end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Sign_up_homepage
   def sign_up_button
     $browser.link(text: 'Sign up')

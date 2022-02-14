@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HomeController < ApplicationController
   before_action :set_homepage, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!
@@ -14,6 +16,5 @@ class HomeController < ApplicationController
   # def edit
   # end
 
-  def show
-  end
+  def show; end
 end
