@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
+  ARTICLES_PER_PAGE = 3
   before_action :set_article, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!
 
   def index
-    @articles = Article.all
+    @articles_page = params.fetch(:page, 0).to_i
+    @articles = Article.offset(@articles_page * ARTICLES_PER_PAGE).limit(ARTICLES_PER_PAGE)
     @articles = Article.where(category_id: params[:category_id]) if params[:category_id]
     add_breadcrumbs('Articles', nil, true)
   end
