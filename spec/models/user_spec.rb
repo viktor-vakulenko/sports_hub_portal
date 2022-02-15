@@ -3,5 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending 'add some examples to (or delete)'
+  it "should be able to save user'" do
+    user = create(:user)
+    expect(user.save).to eq(true)
+  end
 end
